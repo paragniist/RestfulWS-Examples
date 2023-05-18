@@ -1,0 +1,124 @@
+Java Restful Services
+Fee: 5k
+duration: 3 months to 3 months, 15 days
+timings: 8:05 am - 9:05 am [Monday - Saturday] [no sunday]
+Live classroom notes: will be provided on weekly basis to the students
+No recordings, no subscription, no bell icon, No youtube. The students are not permitted to record the classes, if found anyone recording the admission will be cancelled without fee refund. 
+
+pre-requisite:
+1. jdk8 
+2. servlet api [no jsp required]
+3. basic knowledge on distributed technology and distributed webapplication development
+4. packaging and deploying the applications on Servlet container
+5. [optional]: spring framework #mvc module = last 10/15 sessions while explaining developing restful services using spring framework
+
+Part#1:
+course content
+1. Introduction to Distributed Technology, why do we need it
+2. What are Restful Services, evolution of them?
+3. Restful Service Principles
+4. Basics of Http protocol
+5. Architecture of Restful Services
+6. Programming Restful Services
+	- Path Parameter
+	- Method Designators
+	- Bootstrapping 
+	- query parameters
+	- Interfaces & Abstract classes
+	- SubResources
+	- SubResource locators
+7. Jaxrs Injection
+	- Template Parameters
+	- Query Parameters
+	- Header Parameters
+	- Cookie Parameters
+	- Matrix Parameters
+	- PathSegment
+	- UriInfo
+	- HttpHeaders
+	- Automatic Parameter Converters
+	- Custom Type Converters
+	- Bean Parameter
+	
+8. Json (javax.json api)
+	- Json Parsing
+	- Json Binding
+	- Json Streaming
+	
+9. Content Handlers
+	- Built-in support for Contents Handlers
+	- Custom Content Handlers (MessageBodyReaders/MessageBodyWriters)
+	- Provider
+	
+10. working with client api	
+11. Exception Handling in Restful Services
+12. Server Responses
+13. Caching
+14. Asynchronous Programming in Restful Services
+15. Security
+		1. Basic Authentication
+		2. OAuth2 (Spring boot/Spring cloud)
+16. Swagger & Integrating Restful Services with Swagger
+-----------------------------------------------------------------------------------------------------
+Part#2:
+developing Restful Services using Spring Framework
+
+		
+There are #2 parts in our course
+1. Java api how to develop Restful services [purely]
+jax-rs api [java api for restful services: oracle]
+|-jersey
+|-jboss resteasy
+
+2. using spring framework how to develop Restful services
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+
+
+

@@ -1,0 +1,21 @@
+What is distributed technology, why do we need it?
+distributed technology is a mechanism through which we employ more than one person in working a job, so that these resources mutual participate together in computing the output quickly, by which we can
+1. achieve huge performance
+2. drastic change in terms of time in computing the solution
+etc
+
+Under what circumstances do we need to use distributed technology in building the applications/program?
+	(or)
+What are the factors that influence us in building an application based on distributed technology?
+1. if we want quicker turn-around time in computing the job
+turn-around time = the total time the job has taken in completing
+
+2. if we want high throughput
+through-put: no of jobs being completed within given amount of time
+
+3. we want high-responsive, and guaranteed consistency in computing the job
+4. we want high-accuracy and mission critical systems to function without failure
+5. 
+
+
+

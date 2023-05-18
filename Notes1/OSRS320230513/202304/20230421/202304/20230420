@@ -1,0 +1,99 @@
+Evolution of Distributed Technology
+distributed technology is an methodology or a technology which is not an language or an api. group of experts comeup with rules, guideliness and recommendations in building software applications, so that they can mutually cooperate and communicate over the network in accomplishing an job
+
+based on the guideliness, rules and recommendations developers has to build programs within their respective languages so that those applications can be called as "distributed programs/applications". but building applications based on these guideliness is very complex
+1. developers has to write low-level programming logic within the respective languages in enabling the applications to communicate over the network
+2. should define data formats in exchaning the data 
+etc
+
+since it is an common requirement in building distributed applications, its the responsibility of programming languages to provide api in building distributed solutions. Now from the above we can understand java also might have provided apis for building distributed applications aspart of java platform
+
+What is the support of java programming language in building distributed technology applications?
+To support building applications based on distributed technology, java programming language has to provide apis, java has provided several apis in support of building distributed technology applications
+1. corba
+2. rmi
+3. ejb
+4. soap webservices
+5. restful services
+
+1. corba
+corba = stands for common object request broker architecture
+using corba api we can expose any language programs as distributed programs for eg.. a c language program can created as distributed program through corba
+
+How to developer distributed program in Corba?
+1. describe the structure of the class within a file called "IDL" file. IDL stands for interface definition language
+2. pass the IDL file as an input to Corba compiler along with language in which you want Corba compiler to generate the code
+
+
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

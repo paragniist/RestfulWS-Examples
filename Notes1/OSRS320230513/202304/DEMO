@@ -1,0 +1,347 @@
+java framework package [fee: 13k] [3 class daily in-parallel]
+1. Spring Framework with spring boot [6 months] + [boot: 1 month] [3 months, spring core: 70%-80%] [fee: 8k] [7:00 am - 8:00 am]
+2. Hibernate & Jpa api [3 months, 15 days] [1 month, hibernate contents not started yet, only pre-requisite] [fee: 6k] [7:00 pm - 8:00 pm]
+3. Restful Services [3 months, 15 days] [today onwards] [fee: 5k] [8:00 am  - 9:00 am] 
+4. Microservices [1 month] [pre-requisite: spring boot, restful services] [fee: 3k] [8:00 am - 9:00 am]
+--------------------------------------------------------------------------------------------------------------------------------------
+Not part of the java framework package:
+Yet to be started:
+java realtime tools [fee: 3k] [duration: 2 months]
+- ant
+- maven
+- gradle
+- junit
+- mockito
+- log4j
+- sonarcube
+- git
+- svn
+
+java design patterns [fee: 3k] [duration: 1 month, 15 days]
+21 design patterns
+
+java realtime project batch [fee: 6k] [duration: 2 months]
+#java microservices project training
+------------------------------------------------------------------------------------------------------------------------------------
+devops with aws [12k] [duration: 8/9 months] [1 month, 15 days] [6:00 am - 7:00 am]
+topics covered:
+Introduction to devops
+Linux operating system basics
+File Managment commands
+note: if you guys know linux operating system basics, you are good to join this course now. 
+Stricktly: no backups, but allowed in next batch for the missed topics
+
+
+aws cloud platform [fee: 6k] [duration: 3 months]
+--------------------------------------------------------------------------------------------------------------------------------------
+Java Restful Services [Fee: 5k] [duration: 3 months, 15 days] [8:05 am - 9:05 am]
+Pre-requisite: candidates should know these topics to join the course
+1. jdk 8
+	- interfaces & abstract classes
+	- functional interfaces
+	- lambda
+	- collection
+	- file i/o
+	- multi-threading
+	- concurrency
+	- serialization
+	- streaming api
+	- exception handling
+	
+2. jee (advanced java)
+servlet api (only) [no need jsp]
+1. what is an web application and distributed application?
+2. packaging standards (jar, war and ear)
+3. how to deploy an web application into Servlet container?
+4. Servlet/HttpServlet/GenericServlet
+5. ServletConfig/ServletContext
+6. HTTPSession
+7. Cookies
+8. URLRewriting
+9. RequestDispatcher
+10. Filters
+11. Listeners
+12. Forward/Include
+13. Redirect
+
+3. Spring Framework [Spring MVC Module is mandatory] [only #2part of the course]
+
+Course Contents:
+----------------
+Aspart of this course we are going learn building java restful services on #2 platforms
+1. jaxrs api [java api for restful services] = original track of restful services without spring framework [main] [3 months] [concepts]
+2. how to build restful services using spring framework [for this we need spring mvc module knowledge] [7/10 days]
+
+1. Introduction to Distributed Technology
+2. Why do we need distributed technology and areas of usage?
+3. Introduction to Restful Services, why we need Rest?
+4. Principles of Restful Services
+5. Http protocol and detailed brainstroming on http protocol
+6. Architecture of Restful Services
+7. Building Basic Programming on Restful
+	- bootstrapping
+	- path param
+	- query param
+	- Building Restful services through Interfaces/Abstract classes
+	- Sub-Resource locator
+	- Sub-Resource Method
+8. Jaxrs Injection
+	- Template Parameters
+	- Query Parameters
+	- Matrix Parameters
+	- Header Parameters
+	- Cookie Parameters
+	- PathSegment
+	- UriInfo
+	- HttpHeader
+	- Bean Parameters
+	- Automatic Param Converters
+	- Custom Parameter type Converters
+9. Json and json api
+	- json parsing
+	- json streaming
+	- json binding
+10. Content Handlers
+	- Pre-defined Content Handlers supported by jaxrs api
+	- How to build our own Custom Content Handlers
+11. Exception Handling
+12. Handling Responses
+13. Client Api
+14. Caching
+15. Asynchronous Programming
+16. Security
+	- Basic Authentication
+	- OAuth2
+17. Spring Restful Services
+18. Swagger Integration with Restful Services
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

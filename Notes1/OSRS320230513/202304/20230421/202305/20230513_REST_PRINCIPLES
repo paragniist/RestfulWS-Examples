@@ -1,0 +1,89 @@
+There are 5 principles are there
+1. unique addressable URI
+2. uniform constrained interfaces
+	1. familiarity
+	2. interoperability
+	3. scalability
+3. representation oriented
+4. communication stateless
+5. HATEOS
+
+
+3. representation oriented
+There are different types of client applications are there
+1. server-side web applications
+2. mobile applications
+3. thin-browser based applications
+
+each of them has different computing resources and technical abilities. For eg.. a mobile/browser-based thin client applications are limited interms of resources and will not be able to process large payloads, XML structures. These applications can better exchange the data in json format
+
+So unlike the soap services which mandates the clients to communicate only in soap/xml standard, incase of restful service it communicates with the client based on the representation in which he can communicate.
+	
+In-Short: In the representation format the clien requested, the restful service will communicate
+
+
+4. Communication Stateless
+one of the key characteristic of world wide web (WWW) is scalability, day by day more and more number of computers are added to the internet, but there is no impact on the performance or speed of the internet. Because WWW is using http protocol with stateless communication which means the server will not store any data onbehalf of the client.
+	
+While building an traditional web application, we store the state of the client on the server (aspart of HTTPSession), so that the subsequent requests from the same client, the data on the server can be reused. But if the server remembers the state of the client, the server will be limited in handling the number of concurrent clients, because of memory limitations in accomidating the data and breaks the scalability
+
+So restful service principle states, always the server should not memorize the state of the client on the server, let the client itself sends the data whatever is required for performing operation by the server per each request over the network. since the server dont store any data onbehalf the client there is no impact on the memory and can accomodate large number of concurrent users based on system resources and scale-up at greater extent
+
+5. HATEOAS
+Hypermedia as the engine of application state
+
+web application
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	

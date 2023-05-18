@@ -1,0 +1,19 @@
+There are 5 principles are there in restful services
+1. unique addressable URI
+2. uniform constrained interfaces
+3. representation oriented
+4. communication stateless
+5. HATEOS
+
+1. unique addressable URI
+anything that is accessible over HTTP protocol is called an Resource or an WebResource. every resource inorder to be accessed by the client/partner applications they need to have an identifiable URI.
+without an URI we cannot access any distributed object remotely. But Interms of rest principles the URI should unique direct-accessible and addressable URI
+
+indirectly = the addressing schema should be easy.
+Why do we need an direct addressable, accessible URI for a resource?
+Most of the existing distributed technologies suffers with complex addressing schema, that makes them difficult to adopt and use. For eg.. incase of ejb we need to perform an lookup into the jndi registry for accessing an remote ejb, similary incase of soap along with endpointURL we need to know the soapaction value for each method and needs to be passed in a specific way aspart of the request to access the component.
+	
+These things makes the client applications difficult adopt and use the components, instead restful service principles suggest us to have an simple addressing schema like an URI that can be used for directly accessing the remote component without any indirections, thus making them easily adoptable.
+	
+	
+	

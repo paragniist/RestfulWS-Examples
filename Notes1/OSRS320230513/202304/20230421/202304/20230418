@@ -1,0 +1,91 @@
+What are the factors that influence us in building the applications based on distributed technology?
+There are few factors to be taken into account to consider whether an application should be built on distributed technology or not 
+1. quicker turn-around time
+turn-around time: total time the job has taken to complete is called "turn-aroud time"
+if we want to reduce the total time taken by a job to finish then go for distributed technology
+
+2. higher through-put
+through-put = number of jobs being completed within the given amount of time
+within the given amount of time if we want more number of jobs to be completed then we need go for distributed-technology
+for eg.. within 100 hours of time = we are completing 1 job, but instead of 1 job we want to complete 10 jobs within #100 hours of time, this is called more through-put this can be achieved only through distributed technology
+
+3. high-responsive or quicker response
+if we want the job to be completed within the stipulated interval of time, then go for distributed technology
+for eg.. there are few cases where we want the response/output of a job to be returned within the stipulated interval of time no-matter how much amount of load is there on the system, because if the output has been received/returned out of the interval of time, the output may not be usable at all
+
+4. high-accurate and fail-over safe 
+there are few systems that requires higher amount of accuracy and fail-over safe which means incase of fault also system should mitigate or handle without disrupting the operation then we need to go for distributed technology
+for eg.. if a robot is operating an patient for surgery, we need fail-over safe to ensure if there is a failure of the system, there should be a backup that takes care of continuing the procedure without affecting the operation procedure
+
+5. high-utilization of resources
+if we want to increase the utilization of a resource, then distribute the resource across multiple people using distributed technology so that effective utilization of resource is guaranteed
+--------------------------------------------------------------------------------------------------------------------------------------
+How does the applications/programs looks like when we are building them using distributed technology?
+These programs are having ability of communicating over the network, so that 2 different programs can run on different computers (thus multiplying the computing capacity allocated for the job) inter-connected over the network so that they can mutual co-ordinate with each other by communicating over the network to accomplish the job/output desired
+
+in-short: we are building network applications
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
