@@ -1,0 +1,162 @@
+boostrapping technics
+Bootstrapping refers to the configuration options available in starting-up an jaxrs application. The bootstrapping options differs from vendor implementation to another vendor.
+	
+So let us explore the jersey implementation now:
+#1. packages
+
+web.xml
+--------
+<servlet>
+	<servlet-name>jersey</servlet-name>
+	<servlet-class>org.glassfish.jersey.servlet.ServletContainer</servlet-class>
+	<load-on-startup>1</load-on-startup>
+	<init-param>
+		<param-name>jersey.config.server.provider.packages</param-name>
+		<param-value>packageToScan</paramValue>
+	</init-param>
+</servlet>
+<servlet-mapping>
+	<servlet-name>jersey</servlet-name>
+	<url-pattern>"/api/*"</url-pattern>
+</servlet-mapping>
+
+#2. how to disable scanning the subpackages under the given package?
+when we specify the packageName in init-param, it scans along with the package given, including the sub packages also will be scanned. to avoid that we need to add one more init-param as given below.
+		
+<servlet>
+	<servlet-name>jersey</servlet-name>
+	<servlet-class>org.glassfish.jersey.servlet.ServletContainer</servlet-class>
+	<load-on-startup>1</load-on-startup>
+	<init-param>
+		<param-name>jersey.config.server.provider.packages</param-name>
+		<param-value>packageToScan</paramValue>
+	</init-param>
+	<init-param>
+		<param-name>jersey.config.server.provider.scanning.recursive</param-name>
+		<param-value>false</param-value>
+	</init-param>
+</servlet>
+<servlet-mapping>
+	<servlet-name>jersey</servlet-name>
+	<url-pattern>"/api/*"</url-pattern>
+</servlet-mapping>					
+
+#3. How to expose only few classes of our application as resources, rather than all in a package?
+
+<servlet>
+	<servlet-name>jersey</servlet-name>
+	<servlet-class>org.glassfish.jersey.servlet.ServletContainer</servlet-class>
+	<load-on-startup>1</load-on-startup>
+	<init-param>
+		<param-name>jersey.config.server.provider.classnames</param-name>
+		<param-value>fqnResourceClass1,fqnResourceClass2</param-value>
+	</init-param>
+</servlet>
+<servlet-mapping>
+	<servlet-name>jersey</servlet-name>
+	<url-pattern>"/api/*"</url-pattern>
+</servlet-mapping>					
+
+#4. lifecycle scope management of resources
+The way the jaxrs runtime has to instantiate the object of the resource class to delegate the request and perform processing can be managed through lifecycle scope
+There are 2 lifecycle scopes are there 
+1. singleton
+2. request-per-object
+
+#1. singleton = irrespective of number of requests that are sent, always the jaxrs runtime uses one-single object of the resource class to serve any number of requests
+#2. request-per-object = per each request that is send, the jaxrs runtime instantiates a new object of the resource class to server the request
+	
+The developer is responsible for choosing one of these strategies per each resource based on
+1. design or implementation logic of the resource class
+The resources can be classified into 2 groups based on their nature of resource consumption
+1. memory intensive resources = these resources consumes huge memory in carrying the operation, so we need to scope them to singleton for reducing the memory footprint in serving the requests
+2. cpu intensive = consumes huge amount of cpu in performing the processing, such resources should be scoped to request-per-object model
+
+The jaxrs runtime takes care of extracting the data from the request and inject them into the resource class, these injection can be of various types/levels
+1. attribute
+2. constructor
+3. method-level parameter
+
+depends on the lifecycle scope of the resources, the support of these injection varies
+singleton scope: only method parameter level injection is supported. both attribute and constructor level injection is not supported since each request data cannot be populated into attributes/constructor as it gets invoked only once because of singleton scope
+
+request-per-object scope: all the 3 types of injections are supported
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+		
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,4 @@
+we dont need to develop client programs to test whether the resource we develop is working or not, rather we can use tools like 
+1. postman
+2. advanced REST client
+

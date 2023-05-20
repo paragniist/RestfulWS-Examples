@@ -1,0 +1,118 @@
+What are custom content handlers why do we need them?
+When we build the resource class, that takes the data from request body, perform operation and return data aspart of response body, we need to write the code for converting the data that is received aspart of request body into object format, so that we can use the object in performing operation. upon computing the object data, that has to be returned to the client, again we need to write the logic for converting the object into data representation format to dispatch it to the client.
+	
+If our resource is taking care perform data conversion logic along with business logic within its implementation we have several drawbacks
+1. The code for converting the data from data representation format to object format and object to data representation standard gets duplicated across various different resources and their methods within the application
+2. The business logic is exposed to the underlying data representation standard and can work with only that data representation standard. if we want to change the data representation standard, again we need to modify the code in the resource
+3. we need to duplicate the business logic to make it work across multiple data representation standards
+
+to avoid the above problems, build the resources class to accept directly objects of data and return objects of data aspart of the response, dont write data conversion logic within the resource class
+	
+The jaxrs runtime upon receiving the request, it dont know how to dispatch the request to the resource method by passing object of data as an input, similarly if our resource method is returning the object as a return value it dont know how to convert the object into data representation standard to dispatch it to the client
+
+Now the programmer has to write the logic for converting the request body data into object format or object into data representation format. These converter classes has to be invoked by the jaxrs runtime inorder to handover the request to the resource method or to dispatch the response to the client
+These classes we write in converting the data representation format to/fro to objects are called custom content handlers.
+	
+	
+interface MessageBodyReader {
+	boolean isReadable(Class<?> classType, Type rawType, MediaType mediaType, Annotation[] annotations);
+	Object readFrom(Class<?> classType, Type rawType, MediaType mediaType, MultiValuedMap<String, String> httpHeaders, Annotation[] annotations, InputStream in);
+}	
+
+
+interface MessageBodyWriter {
+	boolean isWritable(Class<?> classType, Type rawType, MediaType mediaType, Annotation[] annotations);
+	void writeTo(Object obj, Class<?> classType, Type rawType, MediaType mediaType, Annotation[] annotations, MultiValuedMap<String, String> headers, OutputStream os);
+	
+}
+
+// we have written the logic to make it work only for OpenAccount
+@Consumes("application/json")
+@Provider
+class JsonMessageBodyReader implements MessageBodyReader {
+	boolean isReadable(Class<?> classType, Type rawType, MediaType mediaType, Annotation[] annotations) {
+		if(classType.isAssignableForm(OpenAccount.class) || classType.isAssignableForm(Challan.class)) {
+			return true;
+		}
+		return false;
+	}
+	
+	Object readFrom(Class<?> classType, Type rawType, MediaType mediaType, MultiValuedMap<String, String> httpHeaders, Annotation[] annotations, InputStream in) {
+		Jsonb jsonb = JsonbBuilder.create();
+		Object obj = jsonb.fromJson(in, classType);
+		return obj;
+	}
+}	
+
+
+@Produces("application/json")
+@Provider
+class JsonMessageBodyWriter implements MessageBodyWriter {
+	boolean isWritable(Class<?> classType, Type rawType, MediaType mediaType, Annotation[] annotations) {
+		if(classType.isAssignableForm(AccountDetails.class)) {
+			return true;
+		}
+		return false;
+	}
+	
+	void writeTo(Object obj, Class<?> classType, Type rawType, MediaType mediaType, Annotation[] annotations, MultiValuedMap<String, String> headers, OutputStream os) {
+		JSonb jsonb = JsonbBuilder.create();
+		jsonb.toJson(obj, os);
+		os.close();
+	}
+	
+}
+
+@ApplicationPath("/api")
+class CCHApplication extends Application {
+	private Set<Class<?>> classes;
+	
+	public CCHApplication() {
+		classes = new HashSet<Class<?>>();
+		classes.add(JsonMessageBodyReader.class);
+		classes.add(JsonMessageBodyWriter.class);
+	}
+	
+	public Set<Class<?>> getClasses() {
+		return classes;
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	

@@ -1,0 +1,148 @@
+StreamingOutput
+if we want to directly write the output to the outputsream of the client then we need to use StreamingOutput. In general when we read the data from an source system without any processing or transformation if we want to dispatch the data to the client, then instead of holding the data into a variable of our application, we can stream the data directly into the  outputstream of client itself through the help of StreamingOutput
+
+if we want to write the output directly to the client we need response outputstream, but the jaxrsruntime would not pass the response outputstream of the client as a parameter to the resource method even we declared
+for eg..
+	void addProduct(InputStream in, OutputStream out) {}
+The above resource method will not work, since jaxrsruntime doesnt pass OutputStream directly to the resource class
+	
+There are many reasons why jaxrsruntime will not pass the outputstream, upon writing the output, the jaxrsruntime may wanted to additional processing before dispatching the response to the client like
+1. bufferring the response while dispatching to the client for improved network throughput
+2. while receiving or dispatching the huge data, over http, we wanted to apply gzip deflating (nothing but compression) to improve performance or speed at which data can be exchanged.
+	
+if the jaxrsruntime directly passes the outputstream to the resource class, it cannot apply additional logic ontop while dispatching the response to the client, that is why jaxrsruntime will not pass OutputStream directly to us
+
+but we wanted to write the output directly into the outputstream, how can this be achived? That is where callback mechanism is being used here
+
+The jaxrs api has provided the StreamingOutput as an interface declared with write(OutputStream) method inside it. we need to write our own implementation class withthe appropriate logic in writing the data to the outputstream that is supplied aspart of the parameter of the method.
+The return the object of StreamingOutput class to jaxrs runtime, then jaxrs runtime during the stage of dispatching the response at an appropriate time, it will invoke our class by passing OutputStream in writing the content to the client
+	
+interface StreamingOutput {
+	public void write(OutputStream os) {}
+}
+
+
+@GET
+@Produces("text/plain")
+@Path("/{productCode}/details")
+public StreamingOutput getProduct(@PathParam("productCode") int productCode) {
+	return new ProductDetailsStreamingOutput();
+}
+
+class ProductDetailsStreamingOutput implements StreamingOutput {
+	public void write(OutputStream os) {
+		// write the logic for dispatching the product information to the outputstream
+	}
+}
+------------------------------------------------------------------------------------------------------------------------
+Finally we know how to build the resources or apis that can read/write the data into the Http Request/Response body. By using the supported ParameterTypes or ReturnTypes being declared aspart of the Resource methods
+1. InputStream         1. StreamingOutput
+2. Reader              2. String
+3. String              3. byte[]
+4. byte[]              4. File
+5. File
+6. MultiValuedMap
+we can exchange or read/write the raw representations of the data (here raw: the original format in which the data is being sent or received)
+	
+aspart of request body or response body we can send and recieve any format of data (text or binary etc). The api/resource class we build should be able to read/extract the data and should apply business logic and produce the output to the client.
+Now the client application should be able to recieve the data and should use it aspart of his application in performing operation using the data
+
+So if we interchange the data in text/plain format aspart of request/response body the programs cannot read and interpret the data, so we need to exchange the data in an standard data representation standards (programmable format) only
+
+The data being exchanged between the client and the api/resource class should be in programmable and inter-operable format where both applications can easy understand and process.
+There are lot of programmable formats of data are available
+1. XML
+2. JSON
+3. YAML
+etc
+
+within these formats, the JSON is being widely used in exchanging the data between the client/api resource classes
+How to read/write the data or process the JSON data aspart of the application?
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

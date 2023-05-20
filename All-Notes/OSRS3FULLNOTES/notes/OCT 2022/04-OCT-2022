@@ -1,0 +1,109 @@
+How to deploy Resteasy 6.2.0 application on Tomcat server?
+	
+#1 with web.xml bootstrapping
+dependencies:
+<dependency>
+	<groupId>org.jboss.resteasy</groupId>
+	<artifactId>resteasy-core</artifactId>
+	<version>6.2.0.Final</version>
+</dependency>
+<dependency>
+	<groupId>org.jboss.resteasy</groupId>
+	<artifactId>resteasy-jaxb-provider</artifactId>
+	<version>6.2.0.Final</version>
+</dependency>
+
+in web.xml
+-----------
+In case of RestEasy implementation the jaxrs runtime server is
+org.jboss.resteasy.plugins.server.servlet.HttpServletDispatcher
+
+bootstrapping:
+#1.
+init-param:
+	resteasy.scan: true
+the default url pattern allowed for HttpServletDispatcher is : "/*", to used prefix to the URL like "/api/*" etc we need to define additional init-param 
+	resteasy.servlet.mapping.prefix : "/api"
+		
+<servlet>
+	<servlet-name>resteasy</servlet-name>
+	<servlet-class>org.jboss.resteasy.plugins.server.servlet.HttpServletDispatcher</servlet-class>
+	<init-param>
+		<param-name>resteasy.resources</param-name>
+		<param-value>fqnResources</param-value>
+	</init-param>
+	<init-param>
+		<param-name>resteasy.servlet.mapping.prefix</param-name>
+		<param-value>/api</param-value>
+	</init-param>
+</servlet>
+<servlet-mapping>
+	<servlet-name>resteasy</servlet-name>
+	<url-pattern>"/api/*"</url-pattern>
+</servlet-mapping>
+
+#2. managing lifecycle scope of the resources
+
+class MyApplication extends Application {}
+<servlet>
+	<servlet-name>resteasy</servlet-name>
+	<servlet-class>org.jboss.resteasy.plugins.server.servlet.HttpServletDispatcher</servlet-class>
+	<init-param>
+		<param-name>jakarta.ws.rs.Application</param-name>
+		<param-value>MyApplication</param-value>
+	</init-param>
+	<init-param>
+		<param-name>resteasy.servlet.mapping.prefix</param-name>
+		<param-value>/api</param-value>
+	</init-param>
+</servlet>
+<servlet-mapping>
+	<servlet-name>resteasy</servlet-name>
+	<url-pattern>"/api/*"</url-pattern>
+</servlet-mapping>
+
+
+#3 dont use web.xml
+
+@ApplicationPath("/api")
+class MyApplication extends Application {}
+
+dependencies:
+<dependency>
+	<groupId>org.jboss.resteasy</groupId>
+	<artifactId>resteasy-core</artifactId>
+	<version>6.2.0.Final</version>
+</dependency>
+<dependency>
+	<groupId>org.jboss.resteasy</groupId>
+	<artifactId>resteasy-jaxb-provider</artifactId>
+	<version>6.2.0.Final</version>
+</dependency>
+<dependency>
+    <groupId>org.jboss.resteasy</groupId>
+    <artifactId>resteasy-servlet-initializer</artifactId>
+    <version>6.2.0.Final</version>
+</dependency>
+<dependency>
+    <groupId>org.jboss.resteasy</groupId>
+    <artifactId>resteasy-cdi</artifactId>
+    <version>6.2.0.Final</version>
+</dependency>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

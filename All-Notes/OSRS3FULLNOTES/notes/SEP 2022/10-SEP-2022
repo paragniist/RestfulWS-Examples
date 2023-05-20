@@ -1,0 +1,63 @@
+Http = Hypertext transfer protocol, it is a protocol designed for exchanging the web/html markup over the network. HTTP protocol has been introduced with w3c org
+initial version of http protocol is 1.0 and current version of http protocol: 2.0
+	
+In a http protocol there 2 types of messages are there
+1. Request Message
+2. Response Message
+
+In case of a Request Message, as part of the headers it contains 3 main headers that differentiates from the Response.
+1. protocol
+2. uri
+3. http method
+
+in case of a Response Message we have always status code which differentiates the request from the response
+------------------------------------------------------------------------------------------------------------------------
+Http Methods
+There are 9 Http methods are there as part of Http 2.0 protocol standard
+1. GET     = fetching the representation of the Resource from the server
+2. POST    = creating an new Resource on the server
+3. PUT     = updating an existing Resource on the server
+4. DELETE  = deleting an existing resource on the server
+5. HEAD    = head is similar to GET request only but in case of HEAD the response from the server will be returned by truncating the Response Body 
+6. TRACE   = performs a message loop-back test along with the path of the resource
+7. CONNECT = connect method establishes a tunnel to the server identified by the target resource
+8. OPTIONS = used for retrieving the communication options with the target resource
+9. PATCH   = to make partial update on the resource of the server 
+
+In Restful Services we dont make use of all the Http methods, we model our restful services majorly on 4 http methods only which are 
+1. GET
+2. POST
+3. PUT
+4. DELETE
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

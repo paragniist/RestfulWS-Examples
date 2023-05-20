@@ -1,0 +1,9 @@
+Building resources from Abstract classes
+Abstract classes are used for providing partial implementation across various subclasses. We write the common functionality that is applicable across several classes within abstract class and write sub-classes inheriting from Abstract class to re-use the functionality
+
+similarly we can take the advantage of using abstract classes in reusing the functionality while building resources/api as well.
+	
+The below example demonstrates the aspect of using abstract classes in developing the services
+
+
+

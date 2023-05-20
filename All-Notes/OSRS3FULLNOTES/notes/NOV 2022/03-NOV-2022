@@ -1,0 +1,140 @@
+Content Handlers
+----------------
+There are 3 ways we can send the data aspart of the request
+1. URI
+2. Headers
+3. RequestBody
+
+There are 2 ways we can dipatch the data aspart of the response
+1. Header
+2. ResponseBody
+
+#Request
+always we cannot send the data to the server aspart of URI or Header only since these has certain limitations
+Limitations:
+1. There is a restriction over the amount of data we can exchange aspart of the URI of the request.
+2. The data that is send over the URI or HttpHeaders is of plain-text in nature and that cannot be encrypted due to which sensitive or critical data cannot be exchanged over these
+3. The URI or Headers supports exchanging only text data and doesnt support binary formats
+
+#Response
+The only way to dispatch the data that is computed by the server to the client is by placing it aspart of Response Body only
+
+From the above we can understand many of the times we need to build api/resources that should be able to read/write the data from request body / response body aswell
+
+Who should help me in extracting the data from Request Body / dispatching the data aspart of Response Body?
+The Jaxrs runtime should take the responsibility of extracting the data from RequestBody and should inject it as an input to the Resource class and its method, similarly Jaxrs Runtime	should be able collect the returnValue returned by the resource method and should dispatch the data aspart of Response Body, so that programmer dont have to write the code in handling request/response
+
+even though the jaxrs runtime is capable of reading/extracting the data from request body, it cannot able to pass it as an input to the resource method in any DataType.
+For eg..
+
+@POST
+@Consumes("text/plain")
+public String addProduct(Product product) {}
+
+if we consider the above resource method, the jaxrs runtime dont know how to extract the plain/text content, that is being send aspart of request body and convert into Product object and inject into the Resource method, Jaxrs runtime is only capable of capturing the request body data into few of the predefined dataType variables only and can inject into the Resource Method.
+	
+similarly if our resource method returns any returnValue, jaxrs runtime dont know how to dispatch it aspart of HttpResponse Body
+
+@GET
+@Produces("text/plain")
+public Product getProduct(int productNo) {}
+
+In the above method, when we return a Product object, the jaxrs runtime dont know how to convert the product object into text/plain format to dispatch it aspart of the response body to the client. There are only few returnTypes that are supported by jaxrs runtime which we can return as input, so that it dispatch the data aspart of response body
+
+supported parameter types
+--------------------------
+1. InputStream = binary data aspart of the request body
+2. Reader = character data
+3. String
+4. byte[] 
+5. File
+6. MultiValuedMap = form data (x-www-form-url-encoded)
+	
+supported return types
+----------------------
+1. String
+2. StreamingOutput
+3. File
+4. byte[]
+
+when we declare any of the above acceptable dataType variables as parameters in the resource method without writing any annotation, the jaxrs runtime recognizes that we are asking him to extract the data from requestbody and wrap into this variable type and it will passes it as an input to the resource method
+
+@POST
+@Consumes("text/plain")
+public String addProduct(InputStream in) {}
+
+
+4. StreamingOutput
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

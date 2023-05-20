@@ -1,0 +1,74 @@
+There are 5 principles are there in Restful Services
+1. unique addressable URI
+2. uniform constrained interfaces
+	2.1 familiarity
+	2.2 interoperability
+	2.3 scalability
+3. representation oriented
+4. communication stateless
+5. hateos
+
+3. representation oriented
+in soap we achieved inter-operability by enforcing the standards like
+1. soap binding protocol 
+2. xml
+3. http protocol
+4. wsdl
+5. uddi registry
+
+all the clients irrespective of the nature of them has to adopt and adhere to the same standards in communicating with the provider. There can be an thin-client applications that runs out of browser or could be an mobile applications that runs with limited computing capacity may not be able to communicate with the provider based on the standards enforced
+
+instead of that the restful service doesnt enforce any standards in allowing the client application to communicate. the resources we developed can communicate with any of the standards of the choice of the consumer.
+it is the consumer who has to decide based on which messaging standards over which he wanted to communicate with the provider which is nothing but represention-oriented
+
+representation oriented = in format in which the consumer is communicate the provider supports
+
+4. communication stateless
+the server appliation should not store the state of the client request onbehalf of the client on the server, if the server has stored the state then the memory utilization increases thus by limiting the capacity of the request being served by the server for the clients.
+	
+Instead the client should be able store the state by himself so that the server can accomodate more number of client request and can scaleup
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

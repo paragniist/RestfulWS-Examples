@@ -1,0 +1,110 @@
+There are 5 principles based on which we need to build Restful Services
+1. Unique Addressable URI
+2. Uniform Constrained Interfaces
+3. Representation oriented
+4. Communication stateless
+5. HATEOS
+
+#2. uniform constrained interfaces
+The uniform constrained interfaces refers to for the distributed components we are building expose the functionality over the same methods of same number across all the components.	
+
+The various different business components performs various different functionalities, so how is it possible to build different components over same and fixed set of interfaces?
+Yes, it is possible to design the business components to expose their functionality over uniform, fixed(constrained) interfaces (methods)
+For eg.. if we look at developing the application based on JMS technology, the applications communicates/consumes functionality with each other by exchanging the messages between them.
+	
+The client application sends the message (populated with data) that is required for performing the business operation into a queue. The server application has only one method called "onMessage(String message)" which will be called by the Messaging Middleware by passing the message that has been send to him.
+	
+upon receiving the message, the server application understands the data being send, based on which a relevant operation would be conducted in providing the functionality to the client. The server application again publishes the response back to the client by sending a message into the queue.
+	
+In this application
+all the server components has only one-single method over which we provide different business functionalities which is fixed (constrained), uniform (same across all the components) interfaces. 
+	
+Here we understand the client-application dont need to bother about what methods are there on the server to integrate, only thing he should worry about is the messages being exchanged which makes these 2 applications easily integratable
+
+Now to better understand let us identify the challenges we have without uniformed constrained interfaces.
+when we expose a distributed component without uniform constrained interfaces, how does the client knows the interfaces being exposed by our component?
+we need to provide the documentation information describing the interfaces of the component, which has lot of challenges
+1. 
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+

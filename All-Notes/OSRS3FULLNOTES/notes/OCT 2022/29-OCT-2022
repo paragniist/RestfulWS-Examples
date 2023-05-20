@@ -1,0 +1,74 @@
+Custom Parameter Type converters
+--------------------------------
+
+@Path("/parcel")
+class ParcelService {
+	@GET
+	@Produces("text/plain")
+	@Path("/{awbNo}/track")
+	public String track(@PathParam("awbNo") String awbNo) {
+		// logic for converting into 4 parts so that we can use it in performing operation
+		// business logic in identifying the status of the parcel
+		return info;
+	}
+}
+
+In the above resource class the awbNo consists of multiple values within it 
+#2 = CityName
+#4 = BranchCode
+#6 = Booking Date
+#6 = sequenceNo
+
+that means it is an string of 18 characters which is persisted in the database as individual fields. upon receiving the awbNo aspart of the request, we need to write parsing logic in breaking the awbNo into parts to be used for performing operation.
+once we break the awbNo into #4 parts we can wrap into object, so that it can passed or used for operations
+
+class AwbNo {
+	String cityCode;
+	String branchCode;
+	Date bookingDate;
+	long sequenceNo;
+	// accessors
+}
+
+upon receiving the awbNo as String in the resource method, we need to write the code for converting the string into awbNo object type, so we endup in writing the code across all the classes wherever we are using awbNo.
+	
+To avoid the above problem we need to write AwbNo class following the rules of Java Automatic parameter type conversion. which means a single argument string constructor or  a static valueOf(String) method
+
+but given the AwbNo class has not been written based on the rules of automatic type conversion (because it is part of library), then we cannot declare it as parameter type in resource method to recieve the parameter of the request.
+	
+	
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,75 @@
+What are Context Objects?
+Context objects are the objects that holds the data at various different scopes like
+- application scope
+- session scope
+- request scope
+etc
+
+In jaxrs api as well there are few classes being designed to hold the data to a scope level which are 
+1. URIInfo
+2. HttpHeader
+these 2 classes are used for holding the data at a request scope per each request to the resource
+
+1. URIInfo
+URIInfo is a class wrapped with the URI of the request, the JAXRSRuntime upon receiving the request, it identifies the resource method, if it has been declared with a parameter as URIInfo then it wraps the entire URI of the request into the URIInfo object and injects into the resource method while calling.
+	
+Not the URIInfo holds the entire information about the URI of the request using which we can programmatically access all the data that is attached to the request URI interms of 
+1. path parameters
+2. query parameters
+3. matrix parameters
+
+/cab/kukatpally;area=jntuphase1/madhapur?cab=mini&paymentMode=cash
+
+	
+List<PathSegment> pathSegments = URIInfo.getPathSegments();
+Now we can iterate over each PathSegment and can extract the matrix parameters binded to the PathSegment using getMatrixParameters();
+
+In addition we can access the query parameters attached to the URI of the request using
+MultiValuedMap<String, String> queryParameters = uriInfo.getQueryParameters();
+
+@Path("/cab")
+class CabApiService {
+	@GET
+	@Produces("text/plain")
+	public String getCabsAvailable(@Context URIInfo uriInfo) {
+		// extract all the parameters send aspart of the URI using URIInfo and perform operation
+		return data;
+	}
+}
+------------------------------------------------------------------------------------------------------------------------
+2. HttpHeaders
+HttpHeaders is an another context object, that is injected by the jaxrs runtime by wrapping all of the data that is send as part of the http headers of a request. using HttpHeaders we can programmatically access all of the http headers send as part of the request.
+	
+In addition, the cookies are also being send as part of header which can be accessed using HttpHeaders itself.
+	
+@Path("/cab")	
+class CabResource {
+	@GET
+	@Produces("text/plain")
+	public String getEstimatedTripAmount(String source, String destination, @Context HttpHeaders httpHeaders) {
+		
+	}
+}	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

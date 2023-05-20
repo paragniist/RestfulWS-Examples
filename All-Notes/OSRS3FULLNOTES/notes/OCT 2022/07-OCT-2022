@@ -1,0 +1,5 @@
+Working with template parameters
+---------------------------------
+Template parameter is an reserved position within the URI of the request, in which we can substitute and pass value as an input during the request.
+	
+	

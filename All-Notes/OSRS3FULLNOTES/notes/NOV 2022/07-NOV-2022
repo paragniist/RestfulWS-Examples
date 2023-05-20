@@ -1,0 +1,173 @@
+How many methodologies are there in processing the json data?
+There are 3 technics are there in processing the json data
+1. parsing
+2. streaming
+3. binding
+
+#1. parsing
+json parsing methodology works similar to DOM method, it takes the entire json document as an input and constructs in-memory object representation model and returns the object to us. we can access the data from the json document by browsing through the objects being constructed. 
+	
+while writing the data we need to construct the in-memory object representation of the data to write it in the json format.
+The JSON parsing technic consumes huge amount of memory in processing large volumes of data and it is not memory efficient mechanism to be used
+
+There are 2 basic classes are provided into which the JSON data is being hold
+1. JSONObject
+2. JSONArray
+
+How to read the JSON data?
+To read the data JSON Parsing api has provided an class called "JSONReader" to which we need to pass the JSON document as an input and call either readObject() or readArray() depends on the start of the document
+Json acts as an factory for creating the object of JsonReader or JsonWriter classes.
+	
+JsonReader jsonReader = Json.createReader(inputStream);
+JsonObject jsonObject = jsonReader.readObject();
+
+when we call jsonReader.readObject(), it reads the whole json document supplied and dumps into jvm memory by constructing an JsonObject 
+
+JsonWriter jsonWriter = Json.createWriter(outputStream);
+// create jsonObject or jsonArray representing the json document we want to generate
+jsonWriter.writeObject(jsonObject);
+
+To construct jsonObject or jsonArray we need to use JsonObjectBuilder and JsonArrayBuilder class. give all the data as an input to builder asking builder to build the respective objects
+
+
+
+product.json
+{
+	"productNo": "pa983",
+	"productName": "Samsung 55inch LED Television",
+	"description": "4k dolby atmos",
+	"manufacturer": "samsung",
+	"features": ["4k", "3d", "dolby atmos"],
+	"price": 9383
+}
+----------------------------------------------------
+account.json
+{
+	"accountNo":"ac383",
+	"accountHolderName": "Ruby",
+	"accountType":"savings",
+	"ifscCode": "9939kj3",
+	"balance": 30939,
+	"address": {
+		"addressLine1": "",
+		"addressLine2":"",
+		"city":"",
+		"state":"",
+		"zip":"",
+		"country":""
+	}
+}
+------------------------------------------------------------------------------------------------------------------------
+#2. JSon Streaming
+JSon Streaming is an api or a methodology used for reading/writing the json data. unlike the parsing methodology which consumes huge amount of memory, when it comes to streaming api, it used pull-based event paring mechanism.
+	
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

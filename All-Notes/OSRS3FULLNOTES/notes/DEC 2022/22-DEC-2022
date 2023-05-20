@@ -1,0 +1,164 @@
+Asynchronous client api
+The asynchronous client api is nothing do with the implementation of resource on the server. The asynchronous client api is used for invoking multiple restful services at the client-side and how do we collaborate/process their responses.
+	
+Given in a client application we wanted to invoke multiple restful services or resources, rather than invoking each service one after the another one, if those are the independent services that can be invoked in-parallel then we need to use asynchronous client api
+
+There are 2 patterns in implementing asynchronous client api
+1. fork and join
+2. callback handler
+
+#1. fork and join
+The fork and join mechanism is used incase if we want to invoke multiple restful services/resources in-parallel since those are independent of each other and want to aggregate their responses together then we need to use fork-and-join mechanism
+
+For eg.. we are trying to render an dashboard or an business report which might comprises of various information being drawn from different apis and aggregate together and should display at the client application
+In sale report which we would wanted to draw to the stakeholders may involve multiple parts
+- sales by product
+- new clients
+- production
+
+To collect the above information we need to make a call to 3 different services which are
+1. sales service
+2. clients
+3. RawMaterial Production service
+
+These services can be called independently and needto aggregate their data to render the dashboard or report then we need to use fork and join
+
+
+#2. Callback handler
+At the client application we want to invoke multiple apis/resources in-parallel since these are independent of each other. but each of the services response has different processing logic to be applied which doesnt require any data aggregation and can be handled independently, in that case we need to use callback-handler mechanism in invoking and processing their responses
+
+For eg.. a change of address of a customer who is holding an bank account along with a linked-loan on it. The change request can be applied in parallel by invoking both apis as those are independent and the responses can be handled independently
+
+How to implement asynchronous api?
+The jaxrs api has provided an AsyncInvoker class, instead of using Invocation class we need to use AsyncInvoker which will support both the ways of Handling Api class
+	
+#1. Fork and Join
+Report generateSalesReport(int year) {
+	ClientBuilder builder = ClientBuilder.newInstance();
+	Client client = builder.build();
+	
+	#1. sales api
+	WebTarget salesTarget = client.target("uri");
+	// substitute path parameters, add matrix and query parameters
+	Invocation.Builder invocationBuilder = salesTarget.request();
+	// headers, cookies
+	
+	AsyncInvoker asyncInvoker = builder.async();
+	
+	Future<Response<String>> future1 = asyncInvoker.get(Response.class);
+	
+	#2. new client api
+	WebTarget clientTarget = client.target("uri");
+	// substitute path parameters, add matrix and query parameters
+	Invocation.Builder invocationBuilder = clientTarget.request();
+	// headers, cookies
+	
+	AsyncInvoker asyncInvoker = builder.async();
+	
+	Future<Response<String>> future2 = asyncInvoker.get(Response.class);
+	
+	while(future1.complete() == false || future2.complete()==false) ;
+	// we are waiting
+	
+	Response<String> response1 = future1.get();
+	Response<String> response2 = future2.get();
+	// aggregate and return
+	return report;	
+}
+	
+#2. callback handler
+
+ClientBuilder builder = ClientBuilder.newInstance();
+Client client = builder.build();
+WebTarget target = client.target("uri");
+// substitute path parameters and add query/matrix parameters
+
+AsyncInvoker invoker = client.request().async();
+invoker.get(new MyCallbackHandler());
+
+
+class MyCallbackHandler implements InvocationCallback {
+	public void onSuccess(Response response) {
+		// success response handling logic
+	}
+	public void onFailure(Response response) {
+		// failure response processing
+	}
+}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

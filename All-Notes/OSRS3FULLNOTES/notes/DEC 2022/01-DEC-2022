@@ -1,0 +1,64 @@
+@Path("/payTMAccount")
+class PaytmAccount {
+	@GET
+	@Produces("text/plain")
+	@Path("/balance")
+	public double getBalance(@Query("accountNo") String accountNo) {
+		
+	}
+}
+------------------------------------------------------------------------------------------------------------------------
+interface Configuration {
+	void setProperty(String key, String value);
+}
+
+#1. create the object of WebClient
+There are 2 ways in which we can create the object of WebClient
+
+1.1 use the builder
+WebClientBuilder builder = WebClientBuilder.newInstance();
+builder.setProperty("connection.timeout", "10");
+
+WebClient webClient = builder.build();
+
+1.2 there is a static factory method provided aspart of the WebClientBuilder to directly create the object of WebClient with default configuration
+Client Client = ClientBuilder.newWebClient();
+
+The WebClientBuilder acts both as builder also and factory as well.
+	
+#2 create the WebTarget pointing to the resource we wanted to invoke/access
+
+WebTarget webTarget = webClient.target("http://localhost:8082/payTM/api/payTMAccount/balance");
+webTarget webTarget = webTarget.queryParameter("accountNo","ac1");
+
+#3. create the Invocation.Builder using which we can create request object
+Invocation.Builder invocationBuilder = webTarget.request();
+Invocation invocation = invocationBuilder.buildGet();
+Response response = invocation.invoke();
+if(response.status == 200) {
+	double amount = response.readEntity(Double.class);
+	sop(amount);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	

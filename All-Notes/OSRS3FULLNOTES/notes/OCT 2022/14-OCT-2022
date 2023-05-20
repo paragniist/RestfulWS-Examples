@@ -1,0 +1,6 @@
+Sub-Resource Locator
+We can group and expose the related set of resources by using Sub Resource Locators in a Resource class
+advantages:-
+	1. much clean/organized code
+	2. debugging and understand the application becomes easy
+	

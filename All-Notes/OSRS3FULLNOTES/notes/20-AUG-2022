@@ -1,0 +1,114 @@
+#3. Python
+Python high-level scripting language that is used for programming both at server-side and client-side. Python has all the features of any typical high-level programming language and in addition it has rich of python modules/libraries that can be re-used quickly in building the application, that makes python ideal choice programming
+
+Python is majorly being used for carrying out the administrative scripts in configuring the server-side platforms/engines. 
+There are plenty of advantages in achieving the software configuration management automation through python
+1. we can make use of all the high-level programming language features while programming with python
+2. we can reuse the python modules and quickly create the scripts
+3. richer support of logging
+4. error management
+5. code written in python is portable across the platforms
+
+in addition it has its own dis-advantages:
+1. need strong programming knowledge
+2. difficult to achieve idempotancy
+3. doesnt manages the configuration states of the machines
+4. ops engineer/developer has to endup on writing complex archestration logic in executing the various tasks in achieving the automation
+
+From all the discussions we went through we can derive basic requirements we wanted in accomplishing software configuration management automation:
+The people involved in carrying the software configuration management automation are non-programmers, most administrators who has little/no exposure to any programming platforms so we need a tool/language that help us in 
+	1. easily programming the automation with little programming knowledge
+	2. idempotancy
+	3. proper error management
+	4. logging 
+	5. orchestration
+	6. platform independent
+	7. statement management (keeping track of machines and their software configuration)
+	8. scaled executions
+To fulfill the above requirements in achieving the automation, the software configuration management tools are provided by various different vendors
+1. ansible
+2. chef
+3. puppet
+4. salt stack
+
+How does these software configuration management tools works?
+Any software configuration management tool comes under any of these 2 standard architectures.
+1. pull-based architecture
+2. push-based architecture
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

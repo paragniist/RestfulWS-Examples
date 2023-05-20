@@ -1,0 +1,156 @@
+How many ways we can send the data aspart of the URI of the request?
+There are 2 ways we can send the data aspart of the URI of the request.
+1. query parameters
+2. path parameters
+
+1. query parameters
+query parameters are the key/value pair data appended to the end of the URI in passing the data to the server as an input.
+	
+2. path parameters
+these are the reserved positions within the URI, in which the client can substitute values in passing the data to the server
+
+Which is recommended to be used?
+it is recommended to use PathParameters whereever it is applicable over queryParameters since path parameters has many advantages:
+1. 
+query parameters are complex to use, because the enduser needs to know the syntax of writing the query parameters aspart of the URI
+whereas path parameters are the values directly being passed aspart of the URI of the request, we dont need to learn any syntax in passing them aspart of the URI thus making them more easy/friendly to use
+
+2. 
+The enduser should know or memorize the parameter names in passing the values as an input to the server which is very difficult incase of query parameters
+whereas while using path parameters, we dont need to know the parameter names, all we need to know is the url pattern of the resource to access in sending the request
+
+3. by query parameters the URL of the request is not self-abbrevative or not easily readable, enduser should interpret the URL to understand the request
+whereas path parameters are easy to read and understand
+
+From the above we can understand using path parameters in building the resources makes them more adoptable by the enduser
+------------------------------------------------------------------------------------------------------------------------
+What is the difference between query parameters and path parameters?
+Both of these parameters appears aspart of the URI of the request only, but has lot of differences as described below:
+
+1. The query parameters are not been declared aspart of the URI of the resource, so those are always optional to be passed aspart of the request. but the path parameters are the tokens reserved aspart of the URI of the resource, unless the parameters are passed aspart of the URI in the request, the request will not be matched with resource, so the path parameters are mandatory
+
+2. The query parameters are always appended at the end of the URI, due to which more meaningful URI cannot be constructed
+/search?year=2019&manufacturer=maruthi&color=red
+/2019/red/maruthi/search
+whereas incase pathparameters they can be defined and appeared at any place within the URI due to which more meaningful URI can be constructed for a resource
+
+3. query parameters are multi-valued inputs, we can pass multiple values for a given parameter
+/search?year=2019&year=2020&year=2018
+whereas the path parameters are single valued, we cannot pass multiple values aspart of the URI at the given position
+/2019/search 
+/2019/2020/2018/search = url will not be matched, it cannot be multi-valued
+
+More on PathParameters
+----------------------
+1. scope of the PathParameters
+we can define a PathParameter at the class-level or at the method-level as well. if the pathparameter we are declaring seems to be common across all the resource methods of the component/resource then declare it at the class-level, if it is specific value to be passed for a resource method declare it at the method level
+
+
+@Path("/{accountNo}/manageaccount")
+class ManageAccountApiService {
+	
+	@Put	
+	public String resetPassword(@PathParam("accountNo") String accountNo, InputStream in) {
+		
+	}
+	@GET
+	@Path("/orders")
+	public List<String> getOrders(@PathParam("accountNo") String accountNo) {}
+	
+	@GET
+	@Path("/addresses")
+	public List<String> getDeliveryAddresses(@PathParam("accountNo") String accountNo) {}
+	
+	@GET
+	@Path("/paymentMethods")
+	public List<String> getPaymentMethods(@PathParam("accountNo") String accountNo) {}
+}
+------------------------------------------------------------------------------------------------------------------------
+2. validating the pathparameters being passed aspart of the request
+	
+@Path("/courier")	
+class CourierApiService {
+	
+	@GET
+	@Produces("application/json")
+	@Path("/{awbNo}/track")
+	public String track(@PathParam("awbNo") String awbNo) {
+		// write business logic
+		return status;
+	}
+}	
+
+Instead of receiving invalid parameter values aspart of the request, and result in failure of the processing we can enforce validation on the data to be recieved aspart of the pathparameter by defining validation expression.
+	
+The syntax of declaring template parameter is
+@Path("/{paramname: regex}")
+here regex expression is optional, if we dont define the value is "*" which means accept any type of input for the parameter.
+for example if we want to enforce validation rule on receiving the value for the parameter then we can bind regex expression to the parameter as below
+
+@Path("/{awbNo: [a-z]{3}[0-9]{7}}")
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,20 @@
+Form parameters
+
+@Path("/review")
+class ReviewApiService {
+	@POST
+	@Consumes("x-www-form-url-encoded")
+	public String saveReview(@FormParam("reviewerName") String reviewName,@FormParam("rating") int rating,@FormParam("comments") String comment) {
+		
+	}
+}
+
+review.jsp
+<body>
+	<form action="/api/review" method="POST">
+		ReviewerName: <input type="text" name="reviewerName"/>
+		Rating: <input type="number" name="rating"/>
+		Comments: <input type="text" name="commits"/>
+		<input type="submit" value="review"/>
+	</form>
+</body>

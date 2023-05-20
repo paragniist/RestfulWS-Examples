@@ -1,0 +1,77 @@
+#2. streaming api
+streaming api works based on pull-based event mechanism. event are derived based on the data the pointer is pointing to. if the pointer is pointing to 
+1. "{" = indicates start_object
+2. "}" = end_object
+3. "[" = start_array
+4. "]" = end_array
+5. "key" = key
+6. ="value"=value
+
+when we give an json document as an input to the streaming api it places an pointer to the json document allowing us to iterate and pull the events. based on the type of the event we can access the data from the document
+
+JSonParser jsonParser = Json.createParser(inputStream);
+while(jsonParser.hasNext()) {
+	Event event = jsonParser.next();
+	
+}
+
+How to write the data using streaming api?
+We dont need to build in-memory object model to write the data into json format, rather we ca write the data directly into the outputstream using JsonGenerator
+
+JsonGenerator jsonGenerator = Json.createGenerator(outputstream);
+jsonGenerator.writeStartObject();
+jsonGenerator.add("key", "value");
+jsonGenerator.writeEnd();
+jsonGenerator.close();
+
+parcel.json
+{
+	"parcelNo": "pa9393",
+	"description": "",
+	"weight": 93,
+	"source": "",
+	"destination": "",
+	"bookingDate": "",
+	"items": ["",""]
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

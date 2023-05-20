@@ -1,0 +1,15 @@
+How is the restful resource is different from an Servlet program?
+(or)
+Can we call a Servlet as a Resource/Restful Service?
+	
+Restful Service
+The Restful Services are not build based upon any standards, rather based on architectural principles we build business components. We adopted the principles of restful service over Http protocol.
+So the Restful component exchanges the data in client representation format over the http protocol and performs business operation
+
+If we build any component that is capable of exchanging the data over http protocol based on architectural principles can we call them as restful services?
+every Servlet class is also an Restful Service only, because they can exchange any format of data over http protocol, so we dont need to use an Jaxrs api to build restful services, rather we can implement restful services using Servlet api itself by adopting the principles
+
+
+
+
+	

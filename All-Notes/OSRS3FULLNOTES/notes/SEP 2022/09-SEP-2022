@@ -1,0 +1,67 @@
+There are 5 principles are there
+1. unique addressable URI
+2. uniform constrained interfaces
+3. representation oriented
+4. communication stateless
+5. hateos
+
+#3. representation oriented
+unlike the soap services which enforces the standards to be followed by the client application to communicate with the provider to achieve interoperability. the rest resources doesnt enforces any standards rather depends on nature of the client application it can communicate with resources with its own representation format that is supported resource.
+	
+The client applications can choose any of the message standards supported by the resource class, either it can be an json, xml, yml or could be a simple text of information be exchanged
+
+#4. communication stateless
+The server will not store the information of the client, rather the client itself has to maintain the state over which it has to communicate with the server there by which we can achieve scalability
+
+#5. HATEOS
+Hypermedia as the engine of application state
+In a typical web application while accessing the user dont need any documentation or user manual in understand how to access an application, because upon interacting with the application, in response to the action we performed, the application generates buch of hyperlinks indicating what is the next course of action or operation we can perform on the application so that never the user requires documentation to interact
+
+similar to the above  the restful service/resource we build should be able to embedded the hyperlinks aspart of the response indicating the enduser identify what are next possible interactions he can perform on the service so that we can eliminate the need of documentation completely
+------------------------------------------------------------------------------------------------------------------------
+Architecture of Restful Services
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,181 @@
+Java Automatic Param Type conversion
+-------------------------------------
+We can send the data in 3 places aspart of the request
+1. URI
+2. Headers
+3. Request Body
+
+again within the URI there are 3 ways we can send the data as an input to the server
+1.1. Path parameter
+1.2. Matrix parameter
+1.3. query parameter
+
+if we look at the above ways of sending the data to the server aspart of the request, the
+1. PathParameters
+2. QueryParameters
+3. MatrixParameters
+4. HttpHeaders
+are the data of text in-nature being send aspart of the request to the server, where as in case of request body we can send any arbitary data as an input
+
+arbitary means: either could be an text representation format or binary format
+
+The Jaxrs Runtime takes care of extracting the above parameters of data we mentioned which are path, query, matrix & header parameters of string in nature and injects them into the resource class method parameters while invoking aspart of the request
+
+By default since these parameters are in text in-nature, the jaxrsrutime can inject these values into String type parameters of the resource method.
+If jaxrsruntime only supports extracting and injecting these values into String type variables, then programmers has to write the code for receiving the String values and converting them into corresponding types for using them aspart of the business logic which is tedious job.
+So to support ease of programming jaxrs runtime takes care of automatically converting the text-data recieved aspart of the parameters into target types given the parameters we declare follows the automatic type conversion rules
+
+
+What are the rules over which the automatic type conversion takes place by jaxrsruntime?
+1. all the primitive data types are qualified for automatic type conversion
+
+for eg.. resourceMethod(@PathParam("productcode")	int productCode) {}
+
+2. In case of multi-valued parameters, the jaxrs runtime supports injecting them int collection class types like ArrayList or Set etc, but the generic type of these collections should be the primitive wrapper types only
+
+for eg..
+(@QueryParam("productCode") List<String> productCodes) {}
+(@QueryParam("produceCode") List<Integer> productCodes) {}
+
+These parameters can be injected into Object Type as well given	
+3. The class corresponding to that object type has single String argument constructor or a static valueOf(String) method
+4. In case of multi-valued parameters we can wrap into Collection<Object> types as well give if the Object corresponding class has Single String argument constructor or static valueOf(String) method
+
+
+@Path("/product")
+class ProductApiService {
+	/** based on #1, the jaxrs runtime supports extracting the data from the parameter and converts into primitive type and injects into the resource method while calling for serving the request */
+	@GET
+	@Produces("text/plain")
+	@Path("/{productcode}")
+	public String getProduct(@PathParam("productcode") int productCode) {
+		return "";
+	}
+	
+	/** based on #2 the jaxrs runtime supports extracting multi-valued data and can wrap into a collection object type given, the collection generic type is primitive wrapper */
+	@GET
+	@Produces("text/plain")
+	public String searchProducts(@QueryParam("categoryId") List<Integer> categoryIds) {
+		
+	}
+	
+	@GET
+	@Produces("text/plain")
+	@Path("/{trackingNo}/track")
+	public String trackOrder(@PathParam("trackingNo") TrackingNo trackingNo) {
+		// write the code for decoding into 3 parts and store into TrackingNo
+	}
+
+}
+
+class TrackingNo  {
+	String sourceBranchCode;
+	String destinationBranchCode;
+	int uniqueNo;
+	
+	public TrackingNo(String trackingNo) {
+		sourceBranchCode = trackingNo.subString(0, 2);
+		destinationBranchCode = trackingNo.substring(3, 5);
+		uniqueNo = Integer.parseInt(trackingNo.subString(5, 11));
+	}
+	// accessors
+}
+
+AXY = SOURCE BRANCH CODE 
+UYB = DESTINATION BRANCH CODE
+5 = UNIQUE SERIAL NO 
+
+SOURCEBRANCH_CODE  DESTINATION_CODE UNIQUE_CODE
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

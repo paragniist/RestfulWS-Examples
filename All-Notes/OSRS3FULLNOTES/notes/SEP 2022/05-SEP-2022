@@ -1,0 +1,43 @@
+uniform constrained interfaces
+interfaces we build as part of the distributed component should be fixed and same across all of the components.
+	
+if we dont have uniform constrained interfaces, then we need to document the information about the distributed component and distribute to the world to consume the business component which has lot of problems in adopting and integrating the business component. So to avoid it we need to build the components based on uniform constrained interfaces
+
+There are lot of advantages in adopting the uniform constrained interfaces
+1. Familiarity
+2. Interoperability
+3. Scalability
+
+1. Familiarity
+if we use uniform constrianed interfaces, in building the distributed component then everyone knows what interfaces are being exposed as part of the component. HTTP is a well-known and popularly used protocol and by exposing the business interfaces over HTTP methods make the component easily adoptable and integratable
+
+2. Inter-operability
+
+soap-based web services
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

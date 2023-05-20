@@ -1,0 +1,42 @@
+What is sub-resource locator, why do we need to use it?
+We can group related set of resources under one-single resource class or an URI and dispatch the request to the sub-resources through it using sub-resource locator.
+	
+upon the jaxrs runtime receives the request, it identifies the request to an resource class, sub-resource locator method, now the sub-resource locator method returns the object of another sub-resource class, which contains resource methods inside it to the jaxrs runtime.
+	
+Now jaxrs runtimes maps the request to the resource method by looking into sub-resource class.
+	
+advantage:
+1. we can group related resources together to dispatch the request
+2. code is more organized and easily understandable
+3. debugging the code becomes easy and encourages modularity
+
+How many types of methods are there in a resource class?
+We can write 3 types of methods within a resource class
+1. resource method = if the method is annotated with http method designator annotations, then it is called "resource method"
+2. sub-resource method = along with http method designator, it is associate with sub uri through @Path annotation, then it is called "sub-resource method"
+3. sub-resource locator method = if the method is only annotated with @Path annotation that dispatches or returns the object of another resource-class to serve the request, then it is called "sub-resource locator method"
+	
+	
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	

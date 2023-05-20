@@ -1,0 +1,126 @@
+idempotancy = the post effect of sending the request for 1 time or n number of times would be same and the state of the resource would not be modified uniquely then it is called idempotent operation
+
+GET, PUT, DELETE are idempotant methods
+POST non-idempotant method
+
+Why PUT is idempotant and POST is non-idempotant?
+In case of PUT we send the identity of the resource we wanted to create/update so that it would not uniquely affect the state of the resource. whereas incase of POST we dont send the identity of the resource we wanted to create, so each request will be treated as new and affects the state of the resource on the server so it is non-idempotant
+
+Http Status codes
+-----------------
+the response being returned by the resource is success/failed can be known through status code that is returned aspart of the response message. To let the client identify the response is failed/success based on status code, these status codes are standardized
+1. 2xx = success
+2. 3xx = redirection
+3. 4xx = error at client
+4. 5xx = error at server
+
+POST/PUT:
+In case of a POST request, for the request that is send by client to Resource, if it has created a new resource on server, then a Http Status code 201 (CREATED) will be returned along with the URI of the resource newly created on the server
+
+For the client request, if the operation has been performed successfully and may not return the URI of the resource if it returning some data as part of response then http status code: 200 (OK) should be returned
+
+Incase of succes but we dont want to return any response then http status: 204 (no content)
+------------------------------------------------------------------------------------------------------------------------
+From the principles and the thesis we studied till now, we understood rest is all about adoption of architectural style in build the components to be called as Restful Service components.
+	
+The developer has to understand the principles of Restful Services and has to build components based on them to be called as Restful Components. it is very difficult for a developer by himself in adopting the principles in building applications, so we need support of programming languages.
+	
+The sun microsystems/oracle has provided support of building restfulservices as part of java platform by providing an api called "jaxrs api"	
+jaxrs stands for java api for xml restful services. the name of the api is mis-leading which is indicating the only way we can exchange the data between client/resource is xml even though the api supports building based on multiple message formats.
+	
+apis are always partial, they provide only abstract classes and interfaces, very rarely implementation classes are provided. so we cannot develop applications directly by using apis, we need implementations. There are various different vendors provided implementations for jaxrs api
+1. jboss resteasy
+2. jersey (sun implementation) (very popular)
+3. apache cxf
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

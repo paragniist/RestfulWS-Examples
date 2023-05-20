@@ -1,0 +1,129 @@
+There are 3 ways of processing the json documents are there in java
+1. parsing
+2. streaming
+3. binding
+
+#3. json binding
+-----------------
+json binding is used for converting the json document into object format or java object into json document format. Always in a java program we want to hold the data interms of object in performing operations, but either the parsing api or streaming api doesnt allow us to read the json document data into object, that is where json binding helps us in quickly converting json document into java object or java object into json document format easily
+
+json supports 2 types of data structures
+1. json object
+2. json array
+
+since these are closed to any programming language data structures these can be directly mapped into java class object or collection or arrays or lists etc. So to convert json document data into java representation we dont need to do any complex mapping or modelling skills unlike working with xml.
+	
+1. if we want to hold the json object data into java, we just need to define an java class representing the structure of the json object matching with attributeNames with key/value of the json object
+2. json array we can straight away keeping the data into java class collection objects like an list, set or array
+
+upon creating the necessary data structure to hold the data of a json object or an array into corresponding java class or collection, we need to write code for reading the data from json document and bind into java class object or viceversa
+writing the code in binding the data between json and java seems to be complex instead of we doing it java has provided javax json binding api
+
+vehicle.json
+------------
+{
+	"vehicleNo" : 29,
+	"rtaRegistrationNo": "TS09BX9383",
+	"chasisNo": "cj393",
+	"engineNo": "e99393",
+	"fuelType": "petrol",
+	"color": "red",
+	"manufacturer": "Honda",
+	"model": "crv",
+	"capacity": 5,
+	"year": 2023,
+	"features": ["",""],
+	"price": 1938884
+}
+
+class Vehicle {
+	int vehicleNo;
+	String rtaRegistrationNo;
+	String chasisNo;
+	String engineNo;
+	String fuelType;
+	String color;
+	String manufacturer;
+	String model;
+	@JsonProperty("capacity")
+	int seatingCapacity;
+	int year;
+	String[] features;
+	double price;
+	
+	// accessors
+}
+
+Jsonb binding api has provided an class called "Jsonb" which is responsible for reading the json data and converts into java object format, viceversa it takes the java object and generates json format as well, this process is called marshalling/unmarshalling.
+
+json to object:-
+Jsonb jsonb = JsonbBuilder.create();
+Vehicle vehicle = jsonb.fromJson(inputStream, Vehicle.class);
+
+object to json format:-
+Vehicle vechile = new Vehicle();
+// populate the data
+jsonb.toJson(outputstream, vehicle);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

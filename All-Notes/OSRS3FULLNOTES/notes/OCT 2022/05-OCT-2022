@@ -1,0 +1,205 @@
+How to boostrap the Resteasy implementation?
+with web.xml
+
+#1
+<servlet>
+	<servlet-name>resteasy</servlet-name>
+	<servlet-class>org.jboss.resteasy.plugins.server.servlet.HttpServletDispatcher</servlet-class>
+	<init-param>
+		<param-name>resteasy.resources</param-name>
+		<param-value>fqnResource1,fqnResource2</param-value>
+	</init-param>
+	<init-param>
+		<param-name>resteasy.servlet.mapping.prefix</param-name>
+		<param-value>/api</param-value>
+	</init-param>
+	<load-on-startup>1</load-on-startup>
+</servlet>
+<servlet-mapping>
+	<servlet-name>resteasy</servlet-name>
+	<url-pattern>"/api/*"</url-pattern>
+</servlet-mapping>
+
+
+#2 change the scope of the resources
+
+class MyApplication extends Application {
+	public Set<Object> getSingletons() {}
+	public Set<Class<?>> getClasses() {}
+}
+
+<servlet>
+	<servlet-name>resteasy</servlet-name>
+	<servlet-class>org.jboss.resteasy.plugins.server.servlet.HttpServletDispatcher</servlet-class>
+	<init-param>
+		<param-name>jakarta.ws.rs.Application</param-name>
+		<param-value>MyApplication</param-value>
+	</init-param>
+</servlet>
+<servlet-mapping>
+</servlet-mapping>
+
+#3 no web.xml
+@ApplicationPath("/api")
+class MyApplication extends Application {}
+-----------------------------------------------------------------------------------------------------------------------
+Binding URIs
+
+@Path("/policy")
+class PolicyResource {
+	@GET
+	@Produces(MediaType.APPLICATION_JSON)
+	public String getPolicyDetails(@QueryParam("policyNo") String policyNo) {
+		return "{'policyNo': "+policyNo+", 'policyHolderName': 'Cris'}";
+	}
+	
+	@GET
+	@Produces(MediaType.TEXT_PLAIN)
+	@Path("/duedate")
+	public String getNextPremiumDueDate(@QueryParam("policyNo") String policyNo) {
+		return "10/10/2023";
+	}
+	
+	@GET
+	@Produces(MediaType.TEXT_PLAIN)
+	@Path("/premiumAmount")
+	public double getPremiumAmount(@QueryParam("policyNo") String policyNo) {
+		return 3039.3;
+	}
+}
+
+even though multiple resource methods can be written with same http method designator, the mediaType of the content it either consumes or produces should differ, otherwise the jaxrs runtime would not be able to identify the request to be dispatched to which resource method
+
+In the above case getNextPremiumDueDate & getPremiumAmount has same http method designator and @Produces as well, so that jaxrs runtime will run into ambiguity in determing the resource method to be invoked for a request
+
+if we annotate a resource method with @Path annotation, then that resource methods is called "sub-resource method", because along with root resource uri, we need to use method level uri also to access the method, so it is called "sub-resource method"
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

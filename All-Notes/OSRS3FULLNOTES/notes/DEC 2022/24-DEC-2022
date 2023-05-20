@@ -1,0 +1,133 @@
+swagger
+-------
+principles of restful services
+1. unique addressable URI
+2. uniform constrained interfaces
+3. representation oriented
+4. communication stateless
+5. HATEOS
+
+
+1. The documentation standards differ from technology to technology and it is hard to understand all the documentation standards of various technologies
+2. These documentations standards are technical, unless we know the technology in which the component has been build we cannot understand documentation
+3. These are not human understandable
+due to the above reasons adopting the inter-operable distributed components are very difficult
+So to eliminate the complexity in integrating or accessing an distributed interoperable component Restful services has come up with uniform-constrained interfaces
+
+But when it comes to practical there are lot of advantages of having documentation for interoperable distributed components
+1. With no documentation standard in place, the client application developers has to understand the technology and has to manually build the application programs within their application to integrate with the interoperable components. Instead if we have an documentation standard in-place we can use bunch of tools that are capable of generating the client-side classes/components which can be directly used at the application to communicate with the resources/apis exposed
+Thus it eases the job of integration
+
+2. Even though we have uniform constrained interface, still we dont know the payloads of the messages to be exchanged aspart of request/response, thus making the integrations quite complex
+
+3. Without documentation, we cannot model the interoperable component, so that we might endup in a wrong design/component produced and might be realized at the end of the development. With documentation in place we can build the resources/components from design first approach
+
+From the above it looks like we have plenty of advantages in having documentation of restful services but along with that we have dis-advantages as well.
+eliminating the dis-advantages the swagger and RAML are the 2 documentation standards introduced to document the apis
+1. These are not technology specific
+2. humans can easily understand and read them
+
+over the time swagger has been accepted as an standard documentation standard for documenting the resources/restful services there after has been made as openapi standard
+
+The swagger has comeup with bunch of tools in support of the documentation
+1. swagger-editor = a tool to quickly write the swagger / openapi documentation
+2. swagger-ui = to read the openapi/swagger documentation easily
+3. swagger-codegen = we can generate the code out of the documentation support various different programming languages (contract-first)
+4. swagger api = for generating the documentation out of the code (contract-last)
+	
+we need to write the openapi documentation in either 
+1. json
+2. yaml 
+describing the resource we are building, preferrably the YAML 
+------------------------------------------------------------------------------------------------------------------------
+openapi: 3.0.1
+info:
+	title: stock service
+	description: stock management service provides services for accessing stock info and buy or sell the stock
+	version: 1.0.0
+servers:
+- url: http://localhost:8081/indiabulls/api
+	description: development server
+paths:
+	/stock/{stockName}/info:
+	get:
+		description: provides information about the stock
+		operationId: getStockInfo
+		parameters:
+		- name: stockName
+			in: path
+			required: true
+			schema:
+				type: string
+		responses:
+			"200":
+				description: stock information
+				content:
+					application/json:
+						schema:
+							$ref: '#/components/schemas/stock'
+
+components:
+	schemas:
+		stock:
+			type: object
+			properties:
+				stockNo: 
+					type: integer
+				stockName:
+					type: string
+				price:
+					type: float
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

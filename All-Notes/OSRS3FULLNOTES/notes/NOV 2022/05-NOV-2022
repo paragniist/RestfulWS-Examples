@@ -1,0 +1,233 @@
+To exchange the data aspart of request/response body, we need to use programmable or standard data representation format only. The 3 popularly used data representation	standards are 
+1. XML  = eXtensible markup language
+2. JSON = javascript object notation
+3. YAML = yet another markup language
+
+out of the above 3, the popularly used data representation standard aspart of restful services is JSON.
+	
+JSON
+JSON stands for javascript object notation, which has been introduced as an alternate data representation standard for XML. It is most widely used for exchanging the data between client/web application. JSon is the data interchange standard that can be understood by both humans and application programs as well
+
+There are 2 types of data structures are supported by JSON
+1. Arrays
+2. Object
+which are common data structures supported by every programming language, due to which processing the JSON data aspart of the programming languages is very easy.
+	
+1. ARRAY notation
+arrays are represented in [] brackets separated by comma(,) list of values
+
+for eg.. [10, 20, 30, 40]
+
+2. Objection Notation
+object notation is represented in {} brackets with a pair of key/values within it
+{
+	"key": "value",
+	"key": "value"
+}
+
+both key and the value should be enclosed in double quotes. and if the value type is number then we can exclude double quotes
+------------------------------------------------------------------------------------------------------------------------
+Why do we need to represent the data in JSON format?
+We can write programs that can read/write the data and perform operation on the data easily. 
+	
+How to read/write or process the data in JSON format aspart of the programs?
+We cannot write the appliation programs to read/write the data in JSON format, because we need to write complex programming language in parsing the JSON notation and extract the data from JSON document.
+
+Instead of the programming languages has to provide support for quickly reading and writing the data into JSON document by providing apis. Java language has provided java json api to help us in quickly processing the data aspart of the JSON document.
+	
+There are 3 technics of read/writing the data into JSON document using javax json api
+1. Parsing
+2. Streaming
+3. Binding
+
+#1. Parsing
+Parsing is the methodology through which we can read/write the JSON data. 
+While reading the data from JSON, the JSON parser reads the entire json document and constructs an in-memory object representation model of the data and returns the root of the document to us. now we can navigate or access the data by browsing through the objects
+
+There are 2 classes are provided aspart of JSON parsing api
+1. JsonObject
+2. JsonArray
+These are constructed based on the representation of the JSON the parser has read
+
+While writing the data we need to build in-memory representation of the data by populating into above objects and pass it as an input to JSON parser api, so that representing the memory model of the objects, tjson will be generated.
+	
+if we look at the above technic we can understand parsing is similar to DOM api in jaxp where the whole data is kept in memory and is processed due to which huge amount of memory cusumption takes place
+
+How to read the data from JSON document using javax.json parsing api?
+
+
+{
+	"productNo": "p9383",
+	"productName": "television",
+	"color": "black",
+	"features": ["fullhd", "dolby"]
+	"price": 93833
+}
+
+
+To read the JSON document and construct in-memory object representation javax json parsing api has provided an class called "JSONReader". here Json acts as an factory for creating the corresponding implementation of JsonReader
+	
+JsonReader jsonReader = Json.createReader(inputStream);
+With the above code we instantiated the JsonReader by passing inputStream pointing to the document.
+	
+JsonObject jsonObject = jsonReader.readObject();
+The readObject() method reads the entire json document from the inputStream supplied and constructs the in-memory representation of the data interms of objects
+The readObject() constructs the in-memory object represetation and returns to us
+
+
+How to write the data into JSON formation?
+JSonWriter jsonWriter = Json.createWriter(outputstream);
+Now construct the JSON by using Javax json object api as an inmemory representation using JsonObject/JsonArray and pass it as an input to the JsonWriter which takes care of converting the object representation into JSon text
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

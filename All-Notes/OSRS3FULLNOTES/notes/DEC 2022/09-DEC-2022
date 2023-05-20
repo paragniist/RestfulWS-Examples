@@ -1,0 +1,35 @@
+Caching in Restful Services
+---------------------------
+communication-stateless
+-----------------------
+one of the key principle of restful services in achieving scalability is "communication-stateless", which means the server should not store the data onbehalf the client. The client by himself should store the data locally at the client-side and use it whenever it is necessary.
+	
+	
+problem:
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	

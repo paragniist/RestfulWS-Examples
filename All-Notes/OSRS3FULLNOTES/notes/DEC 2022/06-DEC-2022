@@ -1,0 +1,74 @@
+
+#api info
+/api/property/
+|-{city}/{facing}/{propertyType}/rentals
+	|-city: path:string
+	|-facing: path:string
+	|-propertyType: path:string
+	|-floor: query:int
+	|-minRentalAmount: query:double
+	|-maxRentalAmount: query:double
+	|-location: matrix:string
+	|-propertySize matrix:List<Integer>
+	
+
+class PropertyService {
+	private final static BASE_RESOURCE_URI = "/api/property";
+	private Client client;
+	
+	public PropertyService() {
+		ClientBuilder builder = ClientBuilder.newBuilder();
+		client = builder.build();
+	}
+	
+	
+	public String rentals(String city, String facing, String propertyType, int floor, double minRentalAmount, double maxRentalAmount, String location, List<Integer> propertySizes) {
+		WebTarget target = client.target(BASE_RESOURCE_URI).path("/{city}").matrixParam("location", location).path("/{facing}/{propertyType}").matrixParam("propertySize", propertySizes).resolveTemplateParams("city", city).resolveTemplateParam("facing", facing).resolveTemplateParam("propertyType", propertyType).queryParam("floor", floor).queryParam("minRentalAmount", minRentalAmount).queryParam("maxRentalAmount", maxRentalAmount);
+		Invocation.Builder builder = target.request();
+		Invocation invocation = builder.buildGet();
+		Response response = invocation.invoke();
+		if(response.getStatusCode() == 200) {
+			String body = response.readEntity(String.class);
+			sop(body);
+		}
+		
+	}
+
+}
+
+http://localhost:8081/jaxrsinjection/rest/property/hyderabad;location=Ameerpet/east/Apartment;propertySize=%5B1600,%201250,%201400%5D/rentals?floors=10&minRentalAmount=25000.0&maxRentalAmount=28000.0
+
+
+
+http://localhost:8081/jaxrsinjection/rest/property/hyderabad;location=ameerpet;propertySize=1500/east/apartment;propertySize=1200/rentals?floor=5&floor=16&minRentalAmount=15000
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

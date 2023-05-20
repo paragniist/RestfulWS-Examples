@@ -1,0 +1,125 @@
+1. working with PathParam
+How many ways we can send the data as part of the URI of request?
+There are 2 ways we can send the data aspart of the URI of request
+1. query parameters
+2. path parameters
+
+1. query parameters
+The query parameters are appended at the end of the URI as key/value pair in passing the data as an input to the server
+
+2. path parameters
+Path parameters are the reserved positions within the URI in which the user can substitute the values within those positions in passing the data as an input the server
+
+both these are the 2 different ways of sending the data as an input to the server aspart of URI of the request
+It is recommended to use Path Parameters over query parameters since those has more advantages than other
+
+1.
+query parameters: are more complex to use, enduser should know the syntax of appending query parameters to the URI. the first parameter should be written by using separator as "?" and the subsequent parameters should be separated using "&", unless he knows how to write the parameters to the URI it would be difficult to use them
+
+path parameters: unlike the query parameters, the path parameters are directly added to the URI of the request there is no need to use complex syntax in writing these parameters aspart of the URI
+
+2.
+query parameters: The enduser should know the parameter names in passing the data for them aspart of the request, memorizing those parameter names and passing them aspart of the request is very hard
+path parameters: path parameters are not key/value pair so there is no need of memorizing the keys in passing the values to them.
+
+3. 
+query parameters: it is tough to read the URI of the request since the enduser has to interpret the syntax of query parameters to understand the request
+path parameters: Path parameters are easy to read as those are simple values appended aspart of the URI.
+
+From the above we can understand if is preferrable to use path parameters whereever it is applicable over query parameters because path parameters makes the resources more enduser friendly 
+------------------------------------------------------------------------------------------------------------------------
+What is the different between queryparameters and path parameters, which one should be used when?
+There are several differences between query and path parameters let us understand:
+
+1.
+query parameters
+query parameters are always appended at the end of the URI as a key/value of pair input to the server
+path parameters
+path parameters are the reserved tokens that can appear at any place within the URI, so that more meaningful URI can be constructed using Path Parameters
+
+2. 
+query parameters
+query parameters are always optional, as those are not defined apart of the URI, these are the additional inputs appended at the end of the URI. in the absence of them also still the request will be recieved by the resource
+
+@WebServlet(urlPatterns="/product")
+class ProductServlet {
+	void service(req, resp) {}
+}
+
+/product?category=electronics&title=laptop
+if we dont append category and title also still the servlet can recieve the request, because these parameters are not defined aspart of the URI
+
+path parameters
+path parameters are the reserved positions within the URI, unless passed the request cannot be mapped to the resource, so these are mandatory
+
+@WebServlet(urlPatterns="/*/*/product")
+class ProductServlet {
+	void service(req, resp) {}
+}
+/electronics/laptop/product
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

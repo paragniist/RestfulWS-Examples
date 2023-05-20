@@ -1,0 +1,102 @@
+along with URI and request body the other ways of sending the data to the server is 
+1. Http Header
+2. Cookies
+
+1. Headers:
+headers are used for sending additional information regarding the request/data being send aspart of the body. The data is attached in key/value pair aspart of the http headers by the browser and send to the server.
+
+The jaxrs runtime extracts the http headers and can inject into the resource class, we need to declare the appropriate header to be recieved as an input in the resoure method by using @HeaderParam("headerName")
+
+
+@Path("/ride")	
+class RideResource {
+	@POST
+	@Produces("text/plain")
+	@Path("/{source}/{destination}/book")
+	public String bookCab(@PathParam("source") String source,@PathParam("destination") String destination,@QueryParam("cab") @DefaultValue("basic") String cabType,@HeaderParam("appCode") String appCode,@CookieParam("loggedInId") String loggedInId) {
+		return "";
+	}
+}	
+-----------------------------------------------------------------------------------------------------------------------	
+Bean Param
+if there more number of inputs being sent aspart of the request we need to declare more attributes in the resource method with appropriate annotations in receiving the data.
+but the more the parameters of the method, the signature of the method becomes huge and complex to read/interpret, so instead of declaring all the values to be recieved in parameters we can wrap them into a bean object and recieve in the resource method using bean param
+
+
+@Path("/loan")
+class LoanApiService {
+	public String applyLoan(@BeanParam LoanApplication loanApplication) {
+		
+	}
+}
+
+class LoanApplication {
+	@PathParam("loanType")
+	String loanType;
+	@FormParam("applicationName")
+	String applicantName;
+	@FormParam("principleAmount")
+	double principleAmount;
+	@FormParam("tenure")
+	int tenure;
+	@FormParam("panNo")
+	String panNo;
+	@FormParam("employmentType")
+	String employmentType;
+	@FormParam("mobileNo")
+	String mobileNo;
+	@HeaderParam("appCode")
+	String appCode;
+	@CookieParam("loggedInSessionId")
+	String loggedInSessionId;
+	// accessors
+}
+
+by looking at @BeanParam jaxrs runtime will understand all of the data being sent aspart of the request should be wrapped into the bean object and should be injected while calling the resource method
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

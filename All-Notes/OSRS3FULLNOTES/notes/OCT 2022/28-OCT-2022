@@ -1,0 +1,170 @@
+The jaxrs runtime takes care of extracting the parameters of the request and injects into the resource method parameters, during the time of extracting and binding the data jaxrs runtime takes care type converting these parameters, but given those parameter types we declare in resource method qualifies the jaxrs automatic parameter conversion rules
+
+1. all the primitive data types are qualified to be taken as parameter types for resource method
+2. if there are multi-valued parameters we can capture them in collection class types (Set or List) given if the generic type of these collections are of primitive wrapper types
+3. the parameters can be injected into Object types given
+	3.1 the class corresponding to the Object should have an single argument string constructor or static valueOf(String) method
+4. we can wrap the multi-valued parameters into Collection type whose generic can be an Object given the Object qualifies the above
+
+@Path("/product")
+class ProductApiService {
+	@GET
+	@Produces("text/plain")
+	@Path("/{trackingNo}/track")
+	public String track(@PathParam("trackingNo") String trackingNo) {
+		
+	}
+}
+
+if we consider the above example we can recieve trackingNo into an String parameter, but from an business point of view a trackingNo involves 3 parts
+SOURCE_BRANCH_CODE
+DESTINATION_BRANCH_CODE
+UNIQUE_NO
+
+The tracking no generated for an order is persisted into tracking table as
+SOURCE_BRANCH_CODE DESTINATION_BRANCH_CODE  UNIQUE_NO
+
+so that we can query and get the data easily. for eg we want to find how many shipments are shipped from a specific BRANCH location, but from an enduser perspective he cannot remember 3 different values, so we combine and share it as trackingNo, but internally we have 3 parts in it.
+
+upon receiving the trackingNo, we need to break into 3 parts to perform operation, now the logic for breaking the trackingNo into 3 parts should be written across all the places whereever we are using trackingNo which will be a duplicate efforts/logic as well
+
+Instead we can ask jaxrs runtime to inject the trackingNo into Object type by writing the code for parsing the trackingNo into 3 parts aspart of its constructor
+
+class TrackingNo {
+	String sourceBranchCode;
+	String destinationBranchCode;
+	int uniqueNo;
+	
+	public TrackingNo(String trackingNo) {
+		/// parse and populate into 3 parts
+	}
+}
+	
+The jaxrs runtime extracts the trackingNo from the path parameter of the request and invokes the constructor of the TrackingNo class by passing path parameter value and constructs the object of TrackingNo and injects into the resource class method directly
+	
+
+@Path("/product")
+class ProductApiService {
+	@GET
+	@Produces("text/plain")
+	@Path("/{trackingNo}/track")
+	public String track(@PathParam("trackingNo") TrackingNo trackingNo) {
+		
+	}
+}
+	
+The other way we can accomplish the same is using static valueOf() method. The valueOf() acts as an static factory method in creating the object of a class in which it has been written.
+	
+So within TrackingNo class instead of writing a single string argument constructor we can valueOf() static method as well.
+	
+class TrackingNo {
+	String sourceBranchCode;
+	String destinationBranchCode;
+	int uniqueNo;
+	public static TrackingNo valueOf(String trackingNo) {
+		TrackingNo trackingNo = new TrackingNo();
+		// extract and populate data into object
+		return trackingNo;
+	}
+}	
+
+The JaxrsRuntime looks for either Constructor or valueOf method which ever is available and invokes in constructing the object by passing the parameter value
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

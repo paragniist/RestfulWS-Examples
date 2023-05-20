@@ -1,0 +1,174 @@
+Jersey Bootstrapping
+
+#1. packages
+<servlet>
+	<servlet-name>jersey</servlet-name>
+	<servlet-class>org.glassfish.jersey.servlet.ServletContainer</servlet-class>
+	<load-on-startup>1</load-on-startup>
+	<init-param>
+		<param-name>jersey.config.server.provider.packages</param-name>
+		<param-value>packagesToScan</param-value>
+	</init-param>
+</servlet>
+<servlet-mapping>
+	<servlet-name>jersey</servlet-name>
+	<url-pattern>/api/*</url-pattern>
+</servlet-mapping>
+
+#2. disable recursive scanning 
+<servlet>
+	<servlet-name>jersey</servlet-name>
+	<servlet-class>org.glassfish.jersey.servlet.ServletContainer</servlet-class>
+	<load-on-startup>1</load-on-startup>
+	<init-param>
+		<param-name>jersey.config.server.provider.packages</param-name>
+		<param-value>packagesToScan</param-value>
+	</init-param>
+	<init-param>
+		<param-name>jersey.config.server.provider.scanning.recursive</param-name>
+		<param-value>false</param-value>
+	</init-param>
+</servlet>
+<servlet-mapping>
+	<servlet-name>jersey</servlet-name>
+	<url-pattern>/api/*</url-pattern>
+</servlet-mapping>
+
+#3. specific classes to be exposed as resources
+<servlet>
+	<servlet-name>jersey</servlet-name>
+	<servlet-class>org.glassfish.jersey.servlet.ServletContainer</servlet-class>
+	<load-on-startup>1</load-on-startup>
+	<init-param>
+		<param-name>jersey.config.server.provider.classnames</param-name>
+		<param-value>fqnResourceClass1,fqnResourceClass2</param-value>
+	</init-param>
+</servlet>
+<servlet-mapping>
+	<servlet-name>jersey</servlet-name>
+	<url-pattern>/api/*</url-pattern>
+</servlet-mapping>
+
+#4. managing the lifecycle scope of the resources while registering the resources with jaxrs runtime
+The jaxrs api supports 2 lifecycle scopes for a resource class
+1. singleton = only one object of the resource class will be created per the application level, and serves all the requests to the resource using the same object         
+2. request-per-object = per each request to the resource class a new object of the resource will be instantiated by the jaxrs runtime to serve the request
+
+supported injection Types:
+singleton scope: on the resource method, parameter injection only supported
+request-per-object scope: supports all the 3 types of injections which are attribute level, constructor level and parameter level of the resource method
+
+The Jaxrs Runtime takes care of instantiating the objects of the resource class, inorder to serve the request, so the programmer has to provide the scope information about each resource of the application to the JAXRS runtime
+
+
+The jaxrs api has provided an class called javax.ws.rs.core.Application into which we need to encapsulate the information about all of our resource classes and their scopes and pass it as an input to the jaxrs runtime
+
+<servlet>
+	<servlet-name>jersey</servlet-name>
+	<servlet-class>org.glassfish.jersey.servlet.ServletContainer</servlet-class>
+	<load-on-startup>1</load-on-startup>
+	<init-param>
+		<param-name>javax.ws.rs.Application</param-name>
+		<param-value>LifecycleMgmtApplication</param-value>
+	</init-param>
+</servlet>
+<servlet-mapping>
+	<servlet-name>jersey</servlet-name>
+	<url-pattern>/api/*</url-pattern>
+</servlet-mapping>
+
+class LifecycleMgmtApplication extends Application {
+	private Set<Object> singletons;
+	private Set<Class<?>> classes;
+		
+	public LifecycleMgmtApplication() {
+		singletons = new HashSet<?>();
+		classes = new HashSet<?>();
+		
+		singletons.add(new PayTMAccountService());
+		classes.add(AccountService.class);		
+	}
+		
+	public Set<Object> getSingletons() {
+		return singletons;
+	}
+	public Set<Class<?>> getClasses() {
+		return classes;
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

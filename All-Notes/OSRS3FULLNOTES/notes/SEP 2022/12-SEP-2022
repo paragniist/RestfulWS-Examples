@@ -1,0 +1,155 @@
+There are 9 http methods are there as part of Http 2.0 standard
+1. GET
+2. POST
+3. PUT
+4. DELETE
+5. TRACE
+6. OPTIONS
+7. CONNECT
+8. HEAD
+9. PATCH
+
+For modelling the Restful Services we need only 4 http methods only
+1. GET
+2. POST
+3. PUT
+4. DELETE
+These 4 methods represents CRUD operations in carrying the functionality 
+
+#1. GET
+the GET method is always modelled for retrieving the data/information or resource from the server, incase of GET method we cannot send the data aspart of request body. only way to send the data to the server in GET method
+1.1 as part of the URI
+
+1.2 http request headers
+GET: is an readonly method and is being considered as idempotent
+idempotant?: The post effect of send a request for #n times is equally same as the #1 request, then it is called idempotant
+since GET is an readonly request method and would not modify the state of the resource on the server, it is considered as idempotant and safe operation
+
+POST: is always modelled for creating a new resource on the server. In a post request the client will not send the identity of the resource he want to create on the server, rather the server generates the id with which the operation will be performed and the identity of the resource will be returned to the client.
+	
+POST is not an idempotant & safe operation, because each time when we send an POST request, the server will treats as a unique request and creates new resource on the server which will effect the state of the resource
+
+PUT: is modelled as either for creating a new resource or updating an existing resource on the server. The main difference between PUT/POST is always the client while sending the PUT request will send the identity of the resource aspart of the request.
+	
+For the identity that is send by the client aspart of the request, if there exists an resource on the server, the server will update the resource, if for the identity that is send by the client, if there is no resource found on the server, then treat as a request for creating the resource and create a new resource on the server
+
+PUT is considered as idempotant and unsafe operation, because the post effect of sending the same request for #n of times is equal to #1 time
+
+For eg if we send a PUT request 
+#1 time with customer no: 10 = the server checks whether the resource with customerno:10 already exists or not, if it is not there it creates an new resource on the server
+#2 time same request with customer no: 10 has been send, the server will identifies there exists an resource with same identity and treats as update request and updates the resource with same data, rather than creating an new resource on server
+so the state of the resource will not be uniquely effected by replaying the same PUT request, so it is considered as unsafe and idempotant
+
+DELETE: delete is modelled for deleting an existing resource on the server. always the client will send the identity of the resource he wanted to delete on the server, and it is considered as idempotent and unsafe method.
+
+For the first request with the identity the resource will be deleted on the server, but upon successive requests with same identity, since the resource is already delete, there is no post effect
+-----------------------------------------------------------------------------------------------------------------------
+safe = if a method performs read-only operation on the server then it is considered as safe
+unsafe = if the method modifies the state of the resource on the server, then it is considered as unsafe
+
+Http Status codes
+------------------
+In a http protocol there are only 2 paths of executions are there which is a request path and response path. whenever the client has send a request to the server, the server upon performing the operation would return the response back to the client using http response message.
+	
+But for each request, always the client may not be able to perform the operation successfully, sometimes he might fail in carrying the operation. The failure of the operation should be reported back to the client using response message only.
+	
+So the only way the client can differentiate the response returned by the client is success or failure is through Http Status code as part of response.
+	
+How does the client knows based on the status code, the response returned by the server is success/failed response?
+Http protocol has standardized the status codes to differentiate and identify the response type
+any status code that ranges in 2xx = indicates a success
+                               3xx = redirect
+															 4xx = error at client
+															 5xx = error at the server
+															 
+															 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

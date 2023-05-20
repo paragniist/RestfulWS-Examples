@@ -1,0 +1,192 @@
+#2. uniform constrained interfaces
+across all the business components we are build, exposed them with fixed set of same methods
+For eg.. when we are building applications based on jms technology, the business components we build will has only one method which will receive the message from queue and performs the operation. The decision making of what operation should be performed doesnt depends on which method has been invoked, because it has only one method rather it depends on the data/message we passed to the component
+
+The client who interacts with the component dont know which methods are there on the server-side business component, all he has to know is the messaging semantics to be used for communicating with the server application.
+Irrespective of which business component we are interacting the only operation that has to performed in communicating with the server application is publish/send the message to the queue/topic
+So from the above we can understand we design business components over fixed and same methods across
+
+What will happen if the interfaces are not standardized and same across the business components?
+If the business components are designed without following uniform constrained interfaces then for the client to integrate with the component needs documentation. The developer of the provider application has to document the business component and has to distribute to the consumer applications
+
+But distributing and integrating the components through documentation has lot of problems
+1. The developer might endup in writing huge amount of documentation describing the information about the business component. so the client application developer may have to spend lot of time in reading the documentation of the component to understand and integrate with it
+2. all the information that is documented may not relevant and may not have right information what the client is looking for
+3. different people comeup with documenting components with various different formats, going through all the documentation formats and understand them in integrating the application becomes quite difficult
+
+To overcome the above problems we need documentation standard, but the documentation standards also has their own problems
+1. different distributed technologies has different documentation standards, so the people inorder to integrate their applications need to understand all of these documentations standards in which the components are build to integrate which is a tough job
+
+2. Most these documentation standards are not human understandable, these are technology specific documentations and unless we know the technology we cannot understand what has been defined in them
+
+From the above if we have a business component without uniform constrained interfaces, can the client applications can adopt/integrate easily?
+	
+Let us understand what benefits we have if we are buiding the business component and exposing over uniform constrained interfaces.
+	
+[/account]	
+AccountService
+#POST
+openAccount() {}
+#GET
+getAccount() {}
+#PUT
+updateAccount() {}
+#DELETE
+closeAccount() {}
+
+/account
+GET
+POST
+
+	
+1. GET     = read / retrieve information from the server
+2. POST    = creating new resource on the server
+3. PUT     = updating an existing resource on the server
+4. DELETE  = deleting the resource on the server
+
+There are several benefits of using uniform constrained interfaces
+1. familiarity
+2. interoperability
+3. scalability
+
+1. familiarity
+we are exposing the interfaces of the business components over uniform and constrained interfaces. HTTP is an standard, well-known and popular protocol in the world everyone knows the methods and the semantics of the HTTP protocol that makes it familiar about the interfaces of the business components.
+So this makes us avoid documentation standard in making the component accessible thus adopting component becomes very easy
+
+2. inter-operability
+
+
+to exchange semantics of the operation
+
+why are we establishing standards?
+provider
+soap 1.2 version
+rpc-encoded
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	

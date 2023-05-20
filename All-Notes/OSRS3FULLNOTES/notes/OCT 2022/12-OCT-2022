@@ -1,0 +1,77 @@
+Working with interfaces and abstract classes?
+
+@Path("/payTMAccount")	
+class PayTMAccountApiService {
+	@GET
+	@Produces("text/plain")
+	public double getBalance(@QueryParam("mobileNo") String mobileNo) {
+		return 393;
+	}
+}
+	
+interfaces are the way through which we can build the resources much cleaner way by separating them from annotations.
+	
+@Path("/payTMAccount")	
+interface IPayTMAccountApiService {
+	@GET
+	@Produces("text/plain")
+	double getBalance(@QueryParam("mobileNo") String mobileNo);
+}	
+
+public class PayTMAccountApiServiceImpl implements IPayTMAccountApiService {
+	public double getBalance(String mobileNo) {
+		// business logic
+		return 393;
+	}
+}
+
+The purpose of interface driven programming in jax-rs api is not for providing multiple implementations, rather it is used for decoupling the resource classes from jaxrs annotations.
+The annotations that are written at interface level will gets inherited into the corresponding implementation class.
+	
+For a given interface we can write multiple implementations as well, but @Path annotation should be written on implementation classes rather than at interface level
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

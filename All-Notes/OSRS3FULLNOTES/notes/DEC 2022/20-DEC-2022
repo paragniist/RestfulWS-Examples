@@ -1,0 +1,44 @@
+AsyncContext = That takes care of executing the logic in a separate thread of execution from the requestor thread and is responsible for dispatching the response back to the client using response-thread pool thread
+
+As there are 2 different threads are being used for handling request/response we will not be blocked occuping the system resources and the scalability of the application will be good.
+	
+Note: we should use asynchronous server api or restful apis only when we have long-running process, if it is an short-lived process we dont need to use asynchronous programming apis because they dont add any benefit and on top of it, they make programming api complex
+-----------------------------------------------------------------------------------------------------------------------
+Asynchronous client api
+The Asynchronous client api is no way in relationship with the Server/Resource implementation. Irrespective of the Resource is build on synchronous or asynchronous api, the client can be choosen to implement on its own.
+	
+There are 2 types of Asynchronous client apis are supported
+1. Fork and Join
+2. Callback
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

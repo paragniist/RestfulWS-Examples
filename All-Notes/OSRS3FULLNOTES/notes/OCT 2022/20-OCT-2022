@@ -1,0 +1,13 @@
+How to receive multi-valued inputs?
+In case of multi-valued inputs, the jaxrs api supports receiving multi-values inputs into collection / array objects
+
+@Path("/property")
+class PropertyApiService {
+	@GET
+	@Produces("text/plain")
+	@Path("/{city}/{facing}/{propertyType}/search")
+	public String searchForRentals(@PathParam("city") String city,@PathParam("propertyType") String propertyType,@PathParam("facing") String facing,@MatrixParam("location") String location,@QueryParam("floor") List<Integer> floor,@QueryParam("minRentalAmount") double minRentalAmount,@QueryParam("maxRentalAmount") double maxRentalAmount,@MatrixParam("propertySize") List<Integer> propertySize) {}
+}	
+
+
+/rest/property/hyderabad;location=ameerpet;propertySize=1400/east/apartments;propertySize=1200/facing?floor=5&floor=6&minRentalAmount=12000&maxRentalAmount=25000

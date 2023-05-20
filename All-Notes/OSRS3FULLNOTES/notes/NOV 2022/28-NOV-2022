@@ -1,0 +1,125 @@
+How to Report exception to the client in restfulservices?
+	
+approach #1
+@Path("/upiGateway")
+class UPIGatewayAPIService {
+	RBIService rbiService;
+	
+	public UPIGatewayAPIService() {
+		rbiService = new RBIService();	
+	}
+	
+	@POST
+	@Consumes("application/json")
+	@Produces("application/json")
+	@Path("/merchantPay")
+	public Response merchantPay(MerchantPayRequest request) {
+		UPITransactionReceipt receipt = null;
+		try {
+			// business logic
+			response = Response.ok(upiTransactionReceipt).build();
+		}catch(InsufficientFundsException e) {
+			Error error = new Error();
+			error.setErrorCode(2001);
+			error.setErrorMessage("Insufficient funds");
+			Errors errors = new Errors();
+			errors.add(error);
+			response = Response.badRequest().entity(errors).build();
+		}
+		return response;
+	}
+}
+
+
+class RBIService {
+	public String upiTransfer(String fromUpiAccount, String upiAccount, double amount) {
+		throw new InsufficientFundsException();
+	}
+}
+
+even though the above code will able to report appropriate failure information to the client, but when we look at catch-block, it looks like we are providing alternate path of execution rather than reporting an error to the client, which is mis-leading
+
+approach #2
+
+To overcome this problem jaxrs api has provided an Exception class called "WebApplicationException". We can wrap into the WebApplicationException httpStatus, headers, cookies and body which we wanted to return to the client aspart of the response and throw the exception to the jaxrs runtime
+
+The jaxrs runtime upon receiving the exception, it identifies the exception as WebApplicationException type and will not apply default behaviour rather it extracts the information from the exception and constructs error response based on the exception and dispatches to the client.
+	
+	
+@Path("/upiGateway")
+class UPIGatewayAPIService {
+	RBIService rbiService;
+	
+	public UPIGatewayAPIService() {
+		rbiService = new RBIService();	
+	}
+	
+	@POST
+	@Consumes("application/json")
+	@Produces("application/json")
+	@Path("/merchantPay")
+	public UPITransactionReceipt merchantPay(MerchantPayRequest request) {
+		UPITransactionReceipt receipt = null;
+		try {
+			// business logic
+			
+		}catch(InsufficientFundsException e) {
+			Error error = new Error();
+			error.setErrorCode(2001);
+			error.setErrorMessage("Insufficient funds");
+			Errors errors = new Errors();
+			errors.add(error);
+			WebApplicationException wae = new WebApplicationException(400);
+			wae.setEntity(errors);
+			throw wae;			
+		}
+		return upiTransactionReceipt;
+	}
+}	
+
+There can be multiple places within our application where we might run into InsufficientFundsException, so all those places we need to write the code for converting the exception to error response and throw it to jaxrsruntime, which we endup in writing the duplicate code in translating the exception into error response
+
+approach#3
+To overcome the above problem jaxrs api has provied ExceptionMapper
+
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

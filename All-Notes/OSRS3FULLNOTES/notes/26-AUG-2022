@@ -1,0 +1,81 @@
+soap services are designed based on specification, which has standardized set of standards based on which we need to build applications to achieve inter-operability
+
+There are many problems interms of development complexities, integration challenges and performance/scalability in working with soap services.
+	
+Roy Fielding as part of his doctorial thesis "Architectural System and Design of Network based applications" has plotted the idea of building inter-operable distributed components which are much easier than SOAP.
+He began the study of World Wide Web (WWW) internet and started asking himself the questions about the Web as
+1. how is the web so prevalent?
+2. how is it easily adoptable?
+3. how is it scalable?
+	
+If we can identify the principles on which the world wide web is working and can adopt the same in building our software applications, our applications also becomes 
+adoptable
+prevalent
+and scalable
+
+what are the principles based on which the world wide web is working, so that we can adopt in building our applications?
+There are total 5 principles are there
+1. Unique Addressable URI
+2. Uniform Constraint Interfaces
+3. Representation Oriented
+4. Communication Stateless
+5. HATEOS
+
+#1. Unique Addressable URI
+Each Resource we wanted to expose should have an direct accessible addressable URI with which the client should be able to access the Resource
+
+Most of the existing distributed technologies suffers with lack of direct addressable URI in accessing the components/resources.
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	

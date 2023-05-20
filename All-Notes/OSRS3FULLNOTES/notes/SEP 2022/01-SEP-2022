@@ -1,0 +1,100 @@
+Rest is derived from the architecture style and has principles based on which we need build the application to be called "Restful" services. There are 5 principles are there
+1. Unique addressable URI
+2. Uniform Constrained Interfaces
+3. Representation oriented
+4. Communication Stateless
+5. HATEOS
+
+the world wide web is designed based on the above principles due to which it is prevalent, adoptable and scalable. So if we can build our software applications based on the above principles our applications also becomes highly adoptabe, scalable and prevalent
+
+#1. Unique addresable URI
+Each resource we develop and expose should have an direct addressable accessible URI using which we should be able to access the resource
+Most of the existing distributed technologies suffers with indirect addressing model due to which integrating the applications with the services becomes complex
+
+For eg.. 
+when it comes to soap webservices, even though those are interoperable distributed components, accessing/integrating them is very complex. because we cannot access the soap endpoint using its endpoint address
+because within the endpoint there can be multiple webservice methods can be there so we need to browse the WSDL document to identify the soapAction for the method and should construct the request by populating the soapAction header aspart of the request to access a specific method of that endpoint.
+	
+From the above we can understand even soap services are interoperable, anyone cannot access/integrate the soap services with their application. because they need deep rooted knowledge on soap webservices technology because of its complex addressing model
+
+-> client application: From an client application perspective, all we wanted is to use the functionality offered by the provider application, to use the functionality of the provider application why do we need to be mastered in provider technology which doesnt makes sense and makes the integration more complex
+
+In-Short: So a complex addressing model makes adoptability difficult. 
+So if we have a simplified addressing model where your services are being accessible over an URI, without knowing the technology in which your components are developed any client application can simply send the request to the URI and access the functionality, thus making it highly adoptable
+
+#2. Uniform constrained interfaces
+The distributed, interoperable component we build should be exposed based on fixed and same interfaces (methods) only.
+
+Is it possible to design or expose a distributed interoperable component over fixed, uniformed methods (interfaces)?
+Yes it is possible to design the components based on the fixed, uniformed interfaces
+
+
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

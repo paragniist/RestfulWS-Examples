@@ -1,0 +1,74 @@
+jaxrs is an api provided by sun microsystems or oracle, and there 2 popular implementations are there
+1. jersey
+2. resteasy
+
+#2. JBoss RestEasy implementation
+The JBoss has provided implementation for Jax-rs api called "RestEasy" implementation and it has provided the implementation as binary distribution to us which we can download from https://github.com/resteasy/resteasy/releases/download/6.2.0.Final/resteasy-6.2.0.Final-all.zip
+
+The above binary distribution contains bunch of implementation jars and their dependent jars which we need to add into the classpath of our project to develop restful services using resteasy.
+	
+The RestEasy implementation has an close integration with JBoss Wildfly Server, so as part of the above distribution they provide 2 types of libraries.
+	1. works for wildfly server implementation libraries
+	2. non-fly server libraries (generic works with any servlet container)
+		
+------------------------------------------------------------------------------------------------------------------------
+The Jboss resteasy implementation is shipped by default along with Wildfly server itself, so when we are working on wildfly server in deploying our application, we dont need to package resteasy jars inside our application.
+		
+But the wildfly server may have been shipped with the resteasy implementation version that is available during the release of wildfly server, later on new releases of resteasy might be available.
+So the version of wildfly we are using may have shipped the old resteasy implementation, to work with latest resteasy implementation we need to upgrade the libraries inside the wildfly server 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+		
+
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+	

@@ -1,0 +1,136 @@
+How to construct an error response incase of exception and report to the client?
+	
+#1 we can catch the exception, populate the details failure into an error object wrap into the Response object with appropriate statuscode and return to the jaxrs runtime.
+	
+@Path("/upiGateway")
+class UPIGatewayApiService {
+	RBIService rbiService;
+	
+	public UPIGatewayApiService() {
+		rbiService = new RBIService();
+	}
+	
+	@Path("/merchantPay")
+	@Consumes("application/json")
+	@Produces("application/json")
+	@POST
+	public Response merchantPay(MerchantPaymentRequest request) {
+		Response response = null;
+		try {
+			String txNo = rbiService.upiTransaction(request);
+			//construct UPITransactionReceipt object
+			response = Response.ok(upiTransactionReceipt).build();
+		}catch(InsufficientFundsException e) {
+			Error error = new Error();
+			error.setErrorCode(1001);
+			error.setErrorMessage("insufficient funds");
+			Errors errors = new Errors();
+			errors.addError(error);
+			response = Response.badRequest().entity(errors).build();			
+		}
+		return response;
+	}
+}
+
+In the above code we are catching the exception and returning the return value, which looks like we are performing alternate path of execution in handling the failure and recovering out of it, but actually we are not handling the failure in catch block, rather we are constructing and reporting error itself.
+	
+but by looking at the code, people will gets mis-leaded thinking we are performing alternate path of execution, which is not a best-practise in writing the code
+
+#2
+How to overcome the above problem?
+The jaxrs api has provided an exception class called "WebApplicationException".
+
+class WebApplicationException extends RuntimeException {
+	int statusCode;
+  MultiValuedMap<String, String> headers;
+	Object entityObject;
+}	
+Now instead of we constructing an Error object with information and wrap around response object and return in catch block we can construct WebApplicationException by wrapping all the information we want to report to the client like
+- status
+- headers
+- response body
+and throw to jaxrs runtime
+
+Now jaxrs runtime upon receiving the exception, it identifies it as WebApplicationException and extracts all the information we binded to it and constructs an httpResponse and reports to the client.
+	
+	
+
+@Path("/upiGateway")
+class UPIGatewayApiService {
+	RBIService rbiService;
+	
+	public UPIGatewayApiService() {
+		rbiService = new RBIService();
+	}
+	
+	@Path("/merchantPay")
+	@Consumes("application/json")
+	@Produces("application/json")
+	@POST
+	public UPITransactionReceipt merchantPay(MerchantPaymentRequest request) {
+		Response response = null;
+		try {
+			String txNo = rbiService.upiTransaction(request);
+			//construct UPITransactionReceipt object
+		}catch(InsufficientFundsException e) {
+			Error error = new Error();
+			error.setErrorCode(1001);
+			error.setErrorMessage("insufficient funds");
+			Errors errors = new Errors();
+			errors.addError(error);
+			WebApplicationException wex = new WebApplicationException(400);
+			wex.setEntity(errors);
+			throw wex;
+		}
+		return upiTransactionReceipt;
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

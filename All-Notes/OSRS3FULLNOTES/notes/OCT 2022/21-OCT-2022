@@ -1,0 +1,106 @@
+PathSegment
+
+@Path("/car")
+class CarApiService {
+	/**
+	city = path parameter
+	manufacturer = path parameter
+	model = query parameter
+	year = query parameter
+	color = query parameter
+	fuelType = query parameter
+	minPrice = query parameter
+	maxPrice = query parameter
+	*/
+	@GET
+	@Produces("text/plain")
+	@Path("/{city}/{manufacturer}/search")
+	public String searchCar(@PathParam("city") String city,@PathParam("manufacturer") String manufacturer,@QueryParam("model") String model,@QueryParam("year") List<Integer> years,@QueryParam("color") List<String> colors, @QueryParam("fuelType") String fuelType, @QueryParam("minPrice") double minPrice, @QueryParam("maxPrice") double maxPrice, @MatrixParam("location") String location, @MatrixParam("emissionStandard") List<String> emissionStandard) {
+		
+	}
+}
+
+/hyderabad;location=ameerpet;area=near durga temple;emissionStandard=BS6;capacity=5/maruthi
+
+While working with matrix parameters we can use @MatrixParameter annotation in receiving the values of those matrix parameters send along with path parameters of the URI, but there are problems in using the @MatrixParameter in recieving the values
+1. we cannot identify the matrix parameter has been associated/binded to which path parameter of the URI
+2. In case if the same matrix parameter has been attached to multiple path parameters within the URI, we cannot identify which matrix parameter value is supplied to which path parameter of the URI
+
+The matrix parameters are te dynamic parameters append aspart of the URI while sending the request. How can we read all the matrix parameters attached to the specific path parameter of the URI dynamically?
+by using @MatrixParam annotation we can only read the pre-defined or well-known parameters, but we cannot recieve the parameters that are attached dynamically while sending the request
+
+To overcome the above limitations in working with matrix parameters / path parameters while using annotations, the jaxrs api has provided programmatic api classes in working with parameters
+
+To work with Path parameters of the URI and extract the information around a path parameter (like matrix parameters), the jaxrs api has provided a class called "PathSegment".
+A PathSegment represents an PathParameter within in the URI, using the help of PathSegment we can extract all the information bounded to the Path parameter 
+
+
+@Path("/car")
+class CarService {
+	@GET
+	@Produces("text/plain")
+	@Path("/{city}/{manufacturer}/search")
+	public String search(@PathParam("city") PathSegment citySegment,@PathParam("manufacturer") PathSegment manufacturerSegment,@QueryParam("model") String model,@QueryParam("year") List<Integer> years,@QueryParam("color") List<String> colors, @QueryParam("fuelType") String fuelType, @QueryParam("minPrice") double minPrice, @QueryParam("maxPrice") double maxPrice) {
+		
+		String city = citySegment.getPath(); // hyderabad
+		MultiValuedMap cityMatrixParametersMap = citySegment.getMatrixParameters();
+		
+		manufacturerSegment.getMatrixParameters();
+		
+		
+	}
+}
+
+/api/car/hyderabad;location=ameerpet;area=mithrivanam;emissionStandard=BS6/maruthi;emissionStandard=BS5?model=swift&year=2019&color=red&minPrice=25000&maxPrice=500000
+	
+A PathSegment represents a specific PathParameter of the URI.
+By looking at the PathSegment as an parameter for the resource method, the jaxrs runtime extracts all the information binded to the PathParameter within the URI and wraps into PathSegment object and injects into the resource class method.
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	

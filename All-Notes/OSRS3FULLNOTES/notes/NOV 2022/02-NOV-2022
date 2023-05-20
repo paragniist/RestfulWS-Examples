@@ -1,0 +1,78 @@
+What are content handlers?
+Content Handler is all about receiving the data that is send aspart of the request body into the resource class and dispatching the data that is returned by the resource method aspart of response body
+
+The jaxrsruntime helps us in extracting the data from the request and injects into the resource class method parameters,similarly jaxrsruntime takes care of dispatching the returnvalue returned by the resource method aspart of the response body
+
+but jaxrsruntime cannot extract the requestbody and pass into any parameters of the resource method similarly it cannot take any returnvalue returned by the resource method and dispatches aspart of the response body.
+There are acceptable parameterTypes and returnTypes that can be taken as parameters and returnTypes of the resource method, to let jaxrsruntime support in handling them which are called "Content Handlers"
+	
+Parameter Types
+1. InputStream
+2. Reader
+3. String
+4. File
+5. byte[]
+6. MultiValuedMap<String, String>
+
+Return Types
+1. StreamingOutput
+2. String
+3. File
+4. byte[]
+
+
+@Path("/policy")
+class PolicyApiService {
+
+	@POST
+	@Consumes("text/plain")
+	@Produces("text/plain")
+	@Path("/inputstream")
+	public String addPolicy(InputStream in) {
+		StringBuffer buffer = new StringBuffer();
+		while((int c = in.read()) !=-1) {
+			buffer.append(char)c);
+		}
+		return buffer.toString();
+	}
+	
+	@Post
+	@Consumes("text/plain")
+	@Produces("text/plain")
+	@Path("/reader")
+	public String addPolicy(Reader reader) {
+		
+	}
+	
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

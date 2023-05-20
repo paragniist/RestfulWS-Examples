@@ -1,0 +1,45 @@
+#2. uniform constrained interfaces
+across all the business components of our application expose fixed set of interfaces of same name.
+advantages:-
+1. familiarity
+2. interoperability
+3. scalability
+
+2. interoperability
+How do we achieve inter-operability when it comes to soap services?
+in soap webservices achieving inter-operability is very hard, because we need to adopt lot of standards in achieving the interoperability.
+different vendors supports different standards, to access a provider we need to identify appropriate vendor who supports those standards in accessing the provider.
+In addition we need to construct binding/stub classes which generates the messages that has to be exchanged with the provider.
+
+Instead of that if we following uniform constrained interfaces, altogether we need in communicating the distributed component is sending the data requested. we dont need any message exchange format since the methods we wanted to access across the components are same. so we dont need to generate any stub classes and all the complexities in accessing the components are gone.
+So it is easy to achieve interoperability with uniform constrained interfaces
+
+3. scalability
+because of uniform constraint interfaces we know the semantics of the methods across all the components.
+so if 2 consequitive get requests are sent without any post/put/delete it indicates the state of the resource has not been modified on the server, so the consequctive get request can be served from the cache of the client by caching the inital request being send to the server
+thus it reduces the load on the server and increases the scalability of the application
+------------------------------------------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

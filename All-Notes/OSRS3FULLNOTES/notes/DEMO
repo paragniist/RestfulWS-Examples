@@ -1,0 +1,160 @@
+Java Restful Services
+Timings: 
+Monday - Saturday [8:15 am ist - 9:15 am ist]
+prepared = Saturday/Sunday [1/2 hours] [8:15 am - 10:00 am]
+Fee: 5k
+Duration: 45 days [+- 10 days]
+Notes: live classroom notes will be provided to the students on weekly basis (including examples)
+No recording, no youtube, no subscribe, no facebook ,no bell icons
+Students are not allowed to record the sessions, if found your admission will be cancelled without fee refund (if required legal action)
+-----------------------------------------------------------------------------------------------------------------------	
+Restful services [Microservices + patterns]
+Pre-requisite:
+1. Core Java
+2. Jee [Servlet api] #no jsp required
+	1. What is a Distributed Web Application?
+	2. Jar/War packaging standards
+	3. Servlet Containers and deployment
+	4. Basics of Http Protocol
+	5. Servlet/GenericServlet/HttpServlet
+	6. ServletConfig/ServletContext
+	7. HttpServletRequest/HttpServletResponse
+	8. HttpSession
+	9. Scopes
+		1. Request
+		2. Session
+		3. Application
+	10. RequestDispatcher
+	11. Filters
+	12. Listeners
+	13. Cookies
+	
+3. Spring Framework (optional)[10 days]
+	- core
+	- mvc module
+	- boot (optional)
+------------------------------------------------------------------------------------------------------------------------
+Course Content
+Java Restful Services
+#2 programming apis are available to develop Restful Services
+
+***1. Core Restful Service api (Oracle: Jaxrs api, Implementation: Jersey, Resteasy) [45 days]
+2. Spring Framework Restful Services [10 days]
+	Pre-requisite:
+	I will not teach Spring Framework
+	You should already know spring core, spring mvc to learn spring restful services
+	
+1. Introduction to Restful Services
+2. Architecture of Restful Services
+19. Principles of Restful Services
+3. Http method & Statuses
+4. Building Restful Services example
+5. Bootstrapping technics
+6. Working with SubResource locators
+7. Resource Injection
+	1. PathParameters
+	2. Query Parameters
+	3. Matrix Parameters
+	4. Header Parameters
+	5. Cookie Parameters
+	6. Context objects
+8. Java Automatic Type Conversion
+9. Custom Parameter Type Converters (#extension)
+10. ResourceHandlers
+11. CustomResourceHandler (#extension)
+12. ServerResponses and Exception Handling
+13. Client Api
+14. Http Caching
+15. Asynchronous Restful service development
+16. Securing Restful Services
+	1. Basic Authentication
+	2. OAuth 
+17. Integration Restful Api with Swagger/OpenApi specification
+18. Working with json
+	json api in java
+		- parsing
+		- streaming
+		- binding		
+20. 12 Factor Principles
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

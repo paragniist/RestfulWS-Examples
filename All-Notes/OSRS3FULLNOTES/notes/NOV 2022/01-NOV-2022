@@ -1,0 +1,9 @@
+What are Content Handlers?
+Restful service: are the distributed business components that are designed based on architectural principles of REST. These components are interoperable, distributed and contains complex business logic within them, which can be used for integrating 2 despearate heterogenous systems.
+	
+The business logic contained in these components requires data as an input to perform operation, and upon completing the operation, they produce data as an output that should be dispatched to the client over the network
+
+since these components are exposed over http protocol, the only way to recieve and dispatch the response back is over http request/http response
+
+So the restful services should be built in receiving the data through all the parts of the request, perform operation and dispatch the response back aspart of http response
+

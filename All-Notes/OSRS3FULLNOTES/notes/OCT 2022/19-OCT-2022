@@ -1,0 +1,88 @@
+@Path("/{templateParameter: regex}")
+
+if the incoming value that is supplied aspart of the request is not matching with the regex expression we wrote, then the jaxruntime will return an http error code 403 or 404 without dispatching the request to the resource class/method
+-------------------------------------------------------------------------------------------------------------------------
+Matrix Parameters
+-----------------
+There are 3 ways of sending the data aspart of the URI of the request
+1. path parameters
+2. query parameters
+3. matrix parameters
+
+The Matrix Parameters is also another technic of sending the data as an input to the server aspart of the URI of the request. The Matrix Parameters is not a new feature introduced by jaxrs api, rather it is supported by http protocol standard from day-one, but ignored by many implementations of the protocol
+
+For eg.. Servlet api is an implementation of Http protocol, which has ignored both Path Parameters & Matrix Parameters and supports only query parameters, where as jaxrs api has provided the support for matrix parameters as well.
+	
+Jersey implemenation has ignored Matrix Parameters and may not have complete support for it, but resteasy implementation supports matrix parameters
+
+What are Matrix Parameters, what is the purpose of them?
+Matrix parameters are the way through which we can append additional information to the path parameter of the URI within the request
+
+
+@Path("/carsearch")
+class CarSearchApiService {
+	@GET
+	@Produces("application/json")
+	@Path("/{manufacturer}/{model}/search")
+	public String searchCars(@PathParam("manufacturer") String manufacturer,@PathParam("model") String model,@QueryParam("year") int year, @QueryParam("minPrice") double minPrice, @QueryParam("maxPrice") double maxPrice, @MatrixParam("seatingCapacity") int seatingCapacity,@MatrixParam("fuelType") String fuelType,@MatrixParam("color") String color) {
+		
+	}
+}
+
+localhost:8080/cardekho/api/carsearch/maruthi;seatingCapacity=5/swift;fuelType=diesel;color=red/search?year=2019&minPrice=350000&maxPrice=475000
+	
+What is the difference between PathParameters, QueryParameters and MatrixParameters?
+1. The PathParameters are declared aspart of the URI of the resource, so that these are mandatory to be sent aspart of the request, unless otherwise the request will not be resolved to resource.
+whereas the QueryParameters and MatrixParameters are not being declared aspart of the URI of the resource, so that those are optional to be passed aspart of the request as they dont participate in matching a request to the resource.
+	
+2. The query parameters appears always at the end of the URI only.
+whereas the path parameters & matrix parameters can appear at any place within the URI of the request, so more meaningful URIs can be constructed
+
+3. The Path parameters are single valued whereas the query parameters & matrix parameters are multi-valued where for a give parameters we can supply multiple values as well by writing the parameters for multiple times
+
+4. The PathParameters & Query Parameters are scoped to the request level, but incase of matrix parameters, the input values are not scoped to the request level, those are used for defining or supplying additional inputs to a specific pathparameter of the request
+
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	

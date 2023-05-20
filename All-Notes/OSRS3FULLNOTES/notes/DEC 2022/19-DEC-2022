@@ -1,0 +1,88 @@
+Asynchronous Restful Services
+-----------------------------
+Asynchronous Restful Services it not asynchronous communication rather we are building restful services based on asynchronous programming api
+
+
+@WebServlet(urlPatterns={"/op"}, asyncSupported=true)
+class OrderProcessingServlet extends HttpServlet {
+	public void service(HttpServletRequest request, HttpServletResponse response) {
+		final AsyncContext asyncContext = request.startAsync(); // handler for response Thread-Pool
+		
+		asyncContext.start(new Runnable() {
+			public void run() {
+				// perform business operation
+				HttpServletResponse response = asyncContext.getResponse();
+				//write the response
+				asyncContext.complete();
+			}
+		});		
+	}
+}
+
+The asynchronous programming is supported by only Servlet 3.0 containers
+
+web.xml
+<servlet>
+	<servlet-name>op</servlet-name>
+	<servlet-class>OrderProcessingServlet</servlet-class>
+	<async-supported>true</async-supported>
+</servlet>
+<servlet-mapping>
+	<servlet-name>op</servlet-name>
+	<url-pattern>/op</url-pattern>
+</servlet-mapping>
+
+The Asynchronous restful services is built ontop of Asynchronous Servlet api, here we are going to leverage the request/response thread-pool in dispatching the response.
+		
+
+@Path("/orderProcessing")				
+class OrderProcessingApiResource {
+	@Post
+	@Consumes("application/json")
+	@Produces("application/json")
+	public void process(List<Product> products, @Suspended AsyncResponse asyncResponse) {
+		new Thread(()->{
+			// perform business logic
+			Response response = Response.ok(entity);
+			asyncResponse.resume(response);
+		}).start();
+	}	
+}		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+
+
+
+
+
+
+
+
+
+
+
+
+

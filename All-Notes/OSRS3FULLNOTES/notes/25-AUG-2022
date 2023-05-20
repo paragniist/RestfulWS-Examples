@@ -1,0 +1,80 @@
+The soap webservices are introduced to develop inter-operable distributed applications, soap is defined by its specification.
+The soap specification has outlined/standardized set of standards
+1. http = application protocol for exchanging data
+2. xml = data interchange standard for exchanging the data between the programs in an inter-operable manner
+3. soap = simple object access protocol for classification of information
+4. wsdl = webservice description language for documentation
+5. uddi registries = universal description discovery integration registries for distributing documentation to the world
+that everyone should follow in building the software applications irrespective of language or platform to achieve inter-operability
+
+But there are several problems in building applications based on soap-standards in acheiving inter-operability. 
+most of the languages or enterprises are adopting soap standards in building applications to make them distributed and inter-operable since there is no alternate
+
+
+Roy Fielding
+Doctoral thesis: Architectural Styles and the design of network-based software architecture
+Google: RESTIFIED
+
+
+How does the Roy Fielding has approached to the doctoraial thesis:
+There is no world wide web (WWW) initially, the notion of internet has been started from a school of graduates within their lab to the world today
+
+1. How is the web so prevalent
+2. what makes it so adoptable
+3. how is it scalable
+
+if we can identify the principles/rules over which world wide web is working, and adopt them in building out software applications then our applications also becomes successful, adoptable, scalable like world wide web.
+	
+Restful Service Principles
+1. Unique addressable URI
+2. Uniform Constrained Interfaces
+3. Communication Stateless
+4. Representation Oriented
+5. Hateos
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
