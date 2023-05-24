@@ -1,0 +1,96 @@
+What is the support java programming language in building distributed technology applications?
+Java language has provided several apis
+1. corba
+2. rmi
+3. ejb
+4. soap webservices
+5. restful services
+
+
+4. soap webservices
+soap webservices is an specification standard defined by WS-I organization to achieve inter-operability. The sun microsystems has provided 2 different apis in support of soap webservices specification standards to build applications aspart of java programming language.
+1. jaxrpc api
+2. jaxws api
+
+pros:
+1. finally we are able to make distributed technology applications inter-operable
+2. the soap webservices allows us to standardize the contract (input/output) or interfaces being used between the #2 parties to communicate, so that these can be validated for accuracy, so we can achieve highest level of accuracy
+3. using the soap webservices, we can build enterprise class level inter-operable distributed solutions. soap has provided various specification standards called "ws-*" specification standards to accomplish inter-operability in enterprise-class level features like
+	3.1 ws-security
+	3.2 ws-policy
+	3.3 ws-securitypolicy
+	3.4 ws-atomic transaction
+	3.5 ws-reliable messaging
+	3.6 ws-trust
+	3.7 ws-coordination
+	3.8 ws-addressing
+	etc
+	
+cons:
+1. There are too many standards to be followed in building the soap services like
+	1.1 xml/xsd = jaxp / jaxb
+	1.2 soap    = saaj
+	1.3 wsdl    = wsdl4j 
+	1.4 uddi registry = jaxr
+	1.5 http procotol = servlet api
+these requires huge learning curve and need know lot of apis sourrounding them inorder to work with, that makes people often find very complex to build soap services
+
+2. The only data inter-change standard support by soap webservices is XML. XML is hierarchial representation standard, usually hierarchial representation standards consumes more cpu (for processing) and huge memory for holding the structure in (ram) thus making it not suitable for all types of applications
+for eg.. thin-client applications like mobile applications, browser-based (ajax) applications runs with limited cpu/memory resources, these applications cannot access the soap-webservices even though those are inter-operable
+
+3. programmers has to write stubs/skeleton classes or rely on tools to generate them inorder to exchange the data interms of soap/xml that makes it complex to program
+
+4. even though soap has provided ws-* specification standard for enterprise features, in reality no vendors has adopted or supported them.
+	
+5. even though the soap-webservices are inter-operable, people should know the technology/specification standard inorder to use it. So it is hard to adopt them / use them
+
+To overcome all the above problems in soap services, the restful services are introduced
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+

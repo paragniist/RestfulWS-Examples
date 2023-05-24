@@ -1,0 +1,198 @@
+There are 5 principles are there in Restful Services
+1. Unique Addressable URI
+2. Uniform Constrained Interfaces
+3. Representation Oriented
+4. Communication Stateless
+5. HATEOS
+
+1. Unique Addressable URI = every resource has to have an direct addressable accessible URI for adopting the resource/integrating it easily 
+
+2. Uniform Constrained Interfaces
+every resource should have fixed and same interfaces (methods) across
+
+different resources/distributed components offers different functionalities, so
+	2.1 how can we have same interfaces across the components offering different functionalities?
+	2.2 why do we need it?
+		
+2.1 how can we have same interfaces across the components offering different functionalities?
+The idea behind having fixed and same interfaces across the components is to stick to finite set of operations of the application protocol over which we are distributing the component. So that we can avoid passing an additional parameter like action or method along with URI to identify the interface the client is accessing
+		
+Incase of Restful services, the application protocol over which we expose the component is HTTP protocol, HTTP protocol has a finite set of methods with predefined semantics 
+1. GET    = readonly, and query the data from server
+2. POST   = creating a new resource on the server
+3. PUT    = either creating/updating an existing resource on the server
+4. DELETE = deleting an existing resource on the server
+
+if we can model the business interfaces our components over the http application protocol operations, then we can avoid using an action/method parameter additionally to access the component
+
+#URI: /policy
+class PolicyResource {
+	#POST
+	Policy newPolicy(Enrollment enrollment) {}
+	#PUT
+	String updatePolicy(Policy policy) {}
+	#DELETE
+	String cancelPolicy(String policyNo, String cause) {}
+	#GET
+	Policy getPolicy(String policyNo) {}
+}
+
+by looking at the above, one might wonder how can we model infite set of functionalities with finite set of operations of the application protocol
+
+For eg.. in a JMS technology, the 2 applications communicates with each other by exchanging the messages between them, the only interfaces through which the applications communicate is send & receive, we might wonder how can these 2 applications can communicate with only #2 interfaces being provided and can server various functionalities?
+	
+here the applications will not rely on interfaces to determine what functionality has been requested, rather the receiver determines the functionality being requested based on the Message/Data being exchanged or interpreted.
+	
+From the above, we dont need to really rely on interfaces to identify the functionality, if a component has to offfer #10 functionalities means, we dont need #10 interfaces. with a finite operations we can expose multiple functionalities for eg..
+	
+#URI: /policy	
+class PolicyResource {
+  #GET {policyNo}
+	Policy getPolicy(String policyNo) {}
+	
+	#GET {memberNo}
+	Member getPolicyMember(String memberNo) {}
+}
+
+here we have #2 interfaces being exposed over same protocol operation (GET), but we differentiate the interface based on the input data we recieved aspart of the request. There are many ways to differentiate or distinguish the interface by mapping them to the same protocol operations
+	
+2.2 Why do we need Uniform Constrained Interfaces?
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		

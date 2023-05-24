@@ -1,0 +1,283 @@
+#2. Uniform Constrained Interfaces
+every resource must and should have fixed and same interfaces (methods) across
+
+different resources are offering different services, then
+1. how to achieve uniform constrained interface
+2. why do we need it
+
+
+1. how to offer different functionalities across the resources, with fixed/same interfaces?
+The idea is to eliminate an action/method being passed along with URI of the request, this can be accomplished by sticking to the application protocol operation being used in exposing the interfaces of the resources
+
+in restful services we use HTTP protocol, it has finite set of methods with pre-defined semantics attached, so we can bind the resource methods against the HTTP protocol operations to achieve uniformed constrained interfaces
+1. GET = read
+2. POST = create
+3. PUT = update
+4. DELETE = delete
+
+How to offer various different functionalities with finite set of protocol operations?
+we can still offer different functionalities by using different technics of resolving the requests along with operations like
+based on data or other fields of inputs
+--------------------------------------------------------------------------------------------------------------------------------------
+2.2 Why do we need uniform constrained interfaces?
+if the interfaces are fixed/same across all the components (by adopting uniform constrained interfaces), then the client dont need any documentation information describing the interfaces of the component, because the interfaces are well-known and their semantics are pre-defined. so all that the client needs is the URI of the resource to access
+
+if we have designed our interoperable distributed component without uniform constrained interfaces, means the component can have any interfaces (any methods) then the client application requires documentation information to understand what interfaces are exposed and the semantics of them
+
+Now to integrate or access such component without we need to read the documentation to understand what interfaces are there and their meaning to access the component, this poses lot of difficulties or challenges as below
+problems in using the documentation:
+
+1. the documentation that has been provided could be quite length and much descriptive that might take too much amount of time to read, understand and use the component
+2. different people writes the documentation in different formats or styles, it would be hard to read and understand the documentations provided by different vendors of their components
+3. there is no guarantee that the documentation provided has the adequate/required information needed for accessing it
+
+from the above we can understand documentations are tough to use, as those are described in different formats, so we need standardization in writing the documentation
+
+problems with standardized documentation standards as well:
+1. different technologies has different documentation standards
+for eg.. corba has IDL, and soap web services has WSDL, there is no single common documentation standard that exists
+
+2. these documentation standards are technology specific, these are not human understandable, unless we know about the technology we cannot understand the documentation information
+
+From the above, if we can understand the documentation, then only we can access the distributed component thus making the component difficult to adopt
+instead if the distributed component has been designed based on uniform constrained interfaces, there is no documentation needed and only thing we need is Addressable URI to access it and hence it is easy to adopt
+
+
+By adopting the uniform constrained interfaces, we have many advantages:
+1. Familiarity
+2. Interoperability
+3. Scalability
+
+1. Familiarity
+If we have Addressable URI pointing to the Resource/Service, we know already the methods available on the resource. So we dont need any IDL or WSDL documentation describing the interfaces of the component. All we need is an HTTP Client library for accessing the service that makes it quickly adoptable
+
+2. Interoperability
+interoperable : means any one can access
+The Restful services uses HTTP protocol as an Application protocol over the Network. HTTP protocol is ubiquitous protocol (because WWW itself is working on HTTP protocol). Most programming languages has HTTP protocol client libraries provided, so we can write programs in any language to send/receive HTTP request/response. 
+	
+So if the service/resource we are developing has been exposed over HTTP protocol, then there is an high probability that people can use the service by exchanging the data with standard data formats like (XML, JSON, YAML etc) thus we can become easily interoperable
+
+For eg.. incase of SOAP webservices achieving interoperability is highly difficult, why?
+In SOAP even though they use HTTP protocol for communicating over the network, there is lot of problems in achieving interoperability as below
+1. there is no uniform constrained interface, so we will not use HTTP protocol methods for identifying the interfaces of SOAP Service we need to additional use soapAction for resolving the interface for a give request or we need to construct the payload of the request specially by attaching the interfacename (methodname) as root element in the body
+
+because of this the client application has to understand the specific details of sending the request inorder to access the resource and need to write complex stub classes for constructing the request for accessing the resource
+
+2. incase of soap the data is being exchanged in soap/xml. The soap has several standards like SOAP1.0, SOAP 1.1 and SOAP 2.0 standards with variying features between them
+The client and resource to communicate or exchange data between them they not only exchange request, the need to agree upon the standards to communicate
+
+from the above achieving interoperability is an hardest pill in SOAP services because we need to construct request based on specific details and exchange the data based on agreed standards that makes it difficult to adopt
+
+but incase of rest, since we follow uniform constrained interfaces, all we need is sending the request with data format and receive the response
+
+3. Scalability
+Because REST has constrained interfaces with well-defined semantics you have predictable behavior that can give performance benefits. GET is one of the example.
+	
+-> /account?accountNo=1
+GET
+
+1000
+
+PUT, POST, DELETE -> accountNo=1
+	
+-> /account?accountNo=1
+GET
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

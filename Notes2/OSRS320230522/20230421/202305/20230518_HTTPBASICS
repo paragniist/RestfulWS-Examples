@@ -1,0 +1,128 @@
+How many http methods are supported by http protocol?
+There are 9 methods are supported by http protocol
+1. GET
+2. POST
+3. PUT
+4. DELETE
+5. HEAD
+6. OPTIONS
+7. TRACE
+8. CONNECT
+9. PATCH
+
+1. GET = GET is used for accessing or querying a resource from the server. GET is read-only method, and it is safe & idempotant.
+-------------------------------------------------------------------------------------------------------------------------------------	
+Safe: An http method is safe, if it doesnt alter the state of the server. All the safe methods are idempotant. The GET, HEAD and OPTIONS are considered as safe methods.
+	
+idempotent: idempotant means that multiple identical requests will have the same outcome, this mean it doesnt matter a request has been sent once or multiple times, the post effect of it is always the same.
+	
+GET, HEAD, OPTIONS, TRACE, PUT, PATCH, and DELETE are idempotent methods
+PUT and DELETE are not safe
+POST is the only non-idempotent method
+--------------------------------------------------------------------------------------------------------------------------------------
+if we send the GET request multiple times in accessing the same resource, it would not alter the state of the resource on the server and hence is considered as safe & idempotent
+
+Incase of GET method we dont have request body, the only way to send the data as an input to the server querying an resource is through uri only
+
+
+2. POST = POST is always modelled for creating a new resource on the server. In case of POST we can send the data as an input to the server both via URL aswell as body also.
+	
+while sending the POST request asking the server to create a new Resource, the client will not send the identity of the resource to be created on the server. always the server upon receiving the POST request will generate an identity with which the resource will be created.
+		
+Non-Safe: POST is considered as non-safe, because it modifies the state of the resource on the server.
+Non-Idempotent: POST is considered as non-idempotent, because every time the request is send by the client, he will not send the identity of the resource. So each request, the server will treat it as unique/new and creates a new resource on the server.
+So if the client has sent multiple times the same request to the server, every request will creates a new resource resulting repeated transactions since the post effect of sending 1 or N no of times the request is not same it is considered as non-idempotant
+
+3. PUT = PUT is modelled either as create a new resource or update an existing resource. Incase of PUT we can send the data aspart of URL or Body as well.
+	
+while sending the PUT request, the client always has to send the identity of the resource on whom he wanted to perform operation. The server upon receiving the request, checks for whether a resource exists with that identity or not. If the resource doesnt exist with that identity, it treats as new resource and creates it otherwise it updates the existing resource.
+	
+Non-Safe: PUT is considered as non-safe, as it modifies the state of the resource on the server
+Idempotent: In case of PUT, as we send the identity of the resource to be created/updated, multiple times sending the same request would not effect the state of the resource uniquely, so it is considered as idempotent
+	
+
+4. DELETE = DELETE is modelled for deleting an existing resource on the server and usually send with the identity of the resource to be deleted.
+Non-Safe: DELETE method modifies the state of the resource on the server
+Idempotent : because sending the DELETE request multiple times of that identity will deletes the resource #1st req, but in sub-sequent requests it will not effect the resource state, since it is not found.
+	
+rest of the HTTP methods will not play any role in implementing the restful services.
+	
+5. HEAD = The HEAD method is used for quering/accessing an resource from the Server. But incase of HEAD the server will returns the same response exactly like GET but without response body.
+	
+6. OPTIONS = The OPTIONS method describes the communication options for the target resource
+
+7. TRACE = The TRACE method performs a message loop-back test along the path to the resource (HealthCheck)
+
+8. PATCH = The PATCH method is used for applying partial updates to a resource
+
+9. CONNECT = The CONNECT method establishes a tunnel to the server identified by the target
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+
+
+
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	

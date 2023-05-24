@@ -1,0 +1,258 @@
+There are 5 principles of restful services are there
+1. unique addressable URI
+2. uniform constrained interfaces
+3. representation oriented
+4. communication stateless
+5. HATEOS
+
+2. uniform constrained interfaces
+every resource should have fixed and same interfaces (methods) across over which we need to expose the functionality
+2.1 How to implement uniform constrained interfaces
+by exposing the interfaces of the component through application protocol operations
+
+2.2 why do we need to implement uniform constrained interfaces?
+if there is no uniform constrained interfaces, we need documentation to integrate or access the distributed component. There are several problems in using the documentation to understand and integrate or access the resource
+	1. lengthy and time consuming to understand the documentation
+	2. different people has different styles/formats of writing the documentation, that makes difficult to understand each of them
+	3. may not have adequate information
+	to overcome the above problems we need documentation standard, but there are problems in documentation standards as well
+	1. different technologies has different documentation standards, so we need to endup in understanding each per technology
+	2. there are too technical and cannot be understood unless we know the technology, so complex to use
+	
+From the above we can understand, without uniform constrained interfaces, the distributed components are difficult to adopt or access since we need to deal with documentation
+
+if we follow uniform constrained interfaces there are lot of advantages:
+1. familiarity = everyone knows what interfaces are exposed and their semantics, so we dont need additional documentation to adopt/access the component, that makes it easy to use
+2. interoperability
+From the above (if we use uniform constrained interfaces)
+all that we need to access the distributed component is an URI and need to send the HTTP Request and receive HTTP response by exchanging the data in an standard data representation format (JSON/XML/YAML)
+HTTP protocol is universal and supported by every programming language, so achieving interoperability is very easy
+
+but in other distributed technologies like soap, there is no uniform constrained interfaces (SOAP doesnt use HTTP protocol operations to map the interfaces)
+1. So inorder to communicate with soap webservice, we need to send soapaction or construct the payload of the message in special format by placing root element of the payload as method name. due to this the client application has to write complex stub classes in constructing the payload of that specific format
+
+2. both parties should agree on soap standard unless otherwise they cannot communicate
+so achieving interoperability is very complex in soap world
+
+3. scalability
+since the restful services are exposed over the finite set of operations of HTTP protocol. The HTTP protocol operations has pre-defined semantics, thus helping us in easily achieving scalability
+
+For eg.. while accessing an web application, for the first time the page will takes time for loading, but for the subsequent requests in accessing the same application it would be fast since the previous request has cached most of the resources of the website that makes quickly rendered
+
+similarly upon sending an initial GET request to the resource, the response can be cached and reused for the further or subsequent GET requests if there are no other requests are send to the server for the same Resource.
+since the methods are pre-defined and semantics are well know we can easily determine whether the resource state has been modified or not based on the request Types or operations being applied on the resource, so that we can easily implement cache and scaleup the performance of the Resource
+--------------------------------------------------------------------------------------------------------------------------------------
+3. Representation oriented
+There are different types of client applications wanted to integrate/adopt/access the interoperable distributed component. 
+3.1 Incase of soap webservices
+it has mandated the client applications to achieve interoperability communicate by using standards like:
+	1. http protocol
+	2. soap
+	3. xml
+The client applications has to must and should exchange soap/xml data over the http request to communicate and achieve interoperability with soap services.
+		
+But there could be different types of client applications like
+1. server-side web applications
+2. mobile applications
+3. browser-based thin ajax based applications
+
+not every application types has same capabilities interms of computing capacity and ability of processing. for eg.. an mobile application or an thin client application cannot handle large payloads of data being formatted in soap/xml standard because of the limitation interms of technology or resources
+so even though soap services claims to be interoperable, but in reality those are not inter-operable as everyone cannot use them
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

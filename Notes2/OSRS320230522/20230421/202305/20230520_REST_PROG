@@ -1,0 +1,71 @@
+#1.
+package com.nb.api;
+@Path("/account")
+class AccountApiService {
+	
+	@GET
+	@Produces({"text/plain"})
+	public double getBalance(@QueryParam("accountNo") String accountNo) {
+		// goto database and query the account balance, return
+		SecureRandom random = new SecureRandom();
+		double balance = random.nextDouble();
+		return balance;
+	}
+}
+
+1. Unique Addressable URI
+@Path = if a class is annotated with @Path annotation, then that class is called "Root resource class".
+	
+
+2. Uniform Constrained interfaces
+Each method should be associated with an protocol operations to achieve uniform constrained interface, this can be done through Http Method Designators
+@GET
+@POST
+@PUT
+@DELETE
+
+if a method within the Root Resource class is annotated with Http Method designator annotations then that method is called "Resource Method".
+	
+	
+3. Representation oriented
+The resource should be able to communicate with the Client in representation format he has requested. So inorder to support this the developer has to write the code in the Resource method to produce the data in different formats
+
+to indicate a resource method produces the data in which format the Resource Method should be annotated with @Produces indicating the mediaType of the data the method produces or returns 
+
+
+#2. Configure the JaxRs Runtime in web.xml
+In case of Jersey implementation we need to configure jaxrs runtime as below:
+
+<servlet>
+	<servlet-name>jersey</servlet-name>
+	<servlet-class>org.glassfish.jersey.servlet.ServletContainer</servlet-class>
+	<init-param>
+		<param-name>jersey.config.server.provider.packages</param-name>
+		<param-value>com.nb.api</param-value>
+	</init-param>
+</servlet>
+<servlet-mapping>
+	<servlet-name>jersey</servlet-name>
+	<url-pattern>/api/\*</url-pattern>
+</servlet-mapping>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+

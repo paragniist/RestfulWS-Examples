@@ -1,0 +1,42 @@
+What is Restful Service?
+A new architectural style of developing the software applications based on the principles of Rest to make them interoperable and distributed applications is called "Restful Services".
+	
+The developers has to build software applications based on the architectural principles of Rest in making them interoperable. Building the software applications by:
+1. constructing and exchanging the data based on http protocol over the network
+2. parsing or constructing the data in data exchange standards like xml, json and yaml etc
+seems to be very complex and takes huge amount of time in building the applications
+
+everyone in the world is looking for building interoperable distribution solutions based on rest architectural style, as it is more simplest form of achieving interoperability. so its the responsibility of programming languages to provide convinient apis in building applications based on the rest principles/architecture. 
+So every programming language has provided their own apis in building restful services
+
+What is the support of java language in building restful service applications?
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
