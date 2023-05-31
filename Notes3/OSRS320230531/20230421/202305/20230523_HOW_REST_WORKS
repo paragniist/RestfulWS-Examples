@@ -1,0 +1,62 @@
+We can implement restful services using servlet api as well. The AccountApiService that we have developed earlier can be implementing using Servlet api as below.
+	
+@WebServlet(urlPatterns=“/account”)
+class GetAccountBalanceServlet extends HttpServlet {
+  public void service(httpReq, httpResp) {
+    String method = httpReq.getMethod();
+
+    if(method.equals(“get”) {
+      String accountNo = httpReq.getParameter(“accountNo”);
+
+      // business logic in finding the balance of the given account 
+      balance = …
+
+      httpResp.addHeader(“Content-Type”, “text/plain”);
+      httpResp.addHeader(“Content-Length”,String.valueOf(balance).length());
+      PrintWriter out = httpResp.getWriter();      
+      out.print(balance);
+      out.close();
+    }
+  }
+}
+
+but if we look at the above code, we endup in writing lot of boiler-plate logic across various restful services we build in every application like
+1. upon receiving the request, determine the request based on which we need to apply relevant business logic
+2. the developer has to write huge amount of code in extracting the data from the request received. Various parts of the request like url, headers or from request body and convert into business representation formation that can be used for performing business operation
+3. upon computing the outcome out of business operation, we need to write the logic for preparing the data that can be dispatched aspart of the response body
+4. write the relevant code in adding appropriate response headers and dispatch the data aspart of response body to the client
+			 
+From the above we can easily understand, along with building business logic in for developing distributed component we need to write lot of code in request/response handling which inccurs
+1. huge time in development
+2. increases the cost of developing the application
+3. more chances of bugs and maintainance
+			 
+instead of using servlet api for developing restful services in java, the oracle has provided must sophisticated api called "jaxrs api".
+			 
+The Restful services are also the components that works on http protocol only in receiving the requests and dispatching the response back to the client. The oracle instead of re-building one more api from scratch insupport of developing restful services ontop http protocol in java, it can leverage the existing servlet technology that already exists aspart of java platform in building restful services.
+			 
+			 
+			 
+			 
+			 
+			 
+			 
+			 
+			 
+			 
+			 
+			 
+			 
+			 
+			 
+			 
+			 
+			 
+			 
+			 
+			 
+			 
+			 
+			 
+			 
+			 

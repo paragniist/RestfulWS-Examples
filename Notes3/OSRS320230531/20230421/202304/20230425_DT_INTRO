@@ -1,0 +1,143 @@
+What is the support of distributed technology in java platform?
+java has provided multiple apis in support of distributed technology
+1. corba
+2. rmi
+3. ejb
+4. soap webservices
+5. restful services
+
+1. corba (common object request broker architecture)
+pros:
+1. supports building distributed technology based applications in multiple languages like: java, c
+2. abstracts the complexity of building network programs by generating the network logic by itself
+
+cons:
+1. development complexity in building the corba application is very high, it doesnt matches with traditional java application development process, that makes the people find it very hard and difficult to build applications using corba technology
+2. never heard about middleware server and need to install, package and deploy the applications on it which seems to be quite new
+3. middelware servers are not opensource, we need to purchase license to use them, where the technology itself is pretty new at those times and people dont have any clue about purchasing license to use them when there are not aware of the usages of the technology itself
+4. need administration/maintainance is running the middleware servers which is an extra maintainance cost involved in using them
+5. these middleware servers require huge computing resources, that incurrs the cost of running the application
+
+taking all these things into account, corba has been considered as heavy weight and complex technology to use it in building distributed technology applications in java.
+	
+The Sun Microsystems has deprecated Corba and introduced RMI replacing the Corba Technology
+
+2. RMI
+RMI stands for (remote method invocation), it is an another api provided by Sun Microsystems in support of building distributed technology applications aspart of java platform. while designing the RMI api, the Sun Microsystems ensured none of the pitfalls of Corba are not repeated in RMI and designed it to be light weight/easy to use
+
+Remote Method Invocation: means the methods of the classes are made accessible remote (over the network), the name RMI has been given
+
+How to build applications using RMI?
+1. straight away the development of the application starts with java code itself, no need of writing any IDL script, while building the remote component we need to write
+1.1 an interface (remote interface)
+1.2 an implementation for the interface
+	
+2. upon completing writing the business logic within the implementation, pass these classes as an input to rmi compiler and compile it
+rmi compiler is a tool that is shipped aspart of jdk distribution itself, we dont need to install any additional software
+
+The rmic compiler takes the sourcecode as an input and generates stubs, the stub classes contains the network logic in accepting the request, reading the parameters and invoking our implementation class, collecting the return value and dispatching it over the network
+along with that rmi compiler compiles the java classes and generates the bytecode that can be directly executable
+
+3. package the application using jar standard
+4. register the remote component to rmi registry, rmiregistry is an light weight in-memory server provided by the rmi api
+4.1 rmiregistry is distributed aspart of the jdk distribution, we dont need to install it additionally
+4.2 it is opensource
+4.3 it is in-memory server, doesnt requires administration or maintainance
+4.4 it is light weight, doesnt consumes heavy system resources
+
+just run the rmiregistry and bind the rmi object to the registry, so that the component will be exposed and will be available for access over the network
+
+Pros:
+There are plenty of advantages are there with RMI api
+1. all the difficulties or challenges we faced while working with corba has been eliminated
+	- rmi application development matches with traditional java application development approach
+	- a compiler is an compiler only that generates bytecode/executable code unlike the corba compiler
+	- no need of heavy lifting middleware servers, simple rmi registry
+
+Cons:
+1. building enterprise class-level solutions with rmi is very complex, time taking and the cost of implementation is very high, so RMI is not suitable for developing enterprise applications
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

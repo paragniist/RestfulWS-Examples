@@ -1,0 +1,168 @@
+bootstrapping jersey implementation
+bootstrapping refers to how do we configure the jersey runtime within the application, inorder to make the application/resources accessible/available
+
+There are different ways of bootstrapping the jersey runtime are available, let us explore them:
+
+1. packages in which the resources are placed
+<servlet>
+	<servlet-name>jersey</servlet-name>
+	<servlet-class>org.glassfish.jersey.servlet.ServletContainer</servlet-class>
+	<init-param>
+		<param-name>jersey.config.server.provider.packages</param-name>
+		<param-value>pkg1,pkg2,pkg3</param-value>
+	</init-param>
+</servlet>
+<servlet-mapping>
+	<servlet-name>jersey</servlet-name>
+	<url-pattern>/api/\*</url-pattern>
+</servlet-mapping>
+
+here we specify the packageName where all the resources/restful services within our application are located so that it can scan for those classes under the package and can register them within the resource metadata.
+	
+2. recursive scanning
+by default jersey runtime looks for the resource classes within the package specified, it dont scan for resources under the sub-packages. for eg.. if we have resource classes located as below.
+com.jb.resources
+        |-billing
+				|-patient
+				|-doctor
+we need to specific by default #3 package names as an input to the jersey runtime in identifying the resources under each package.	
+jersey.config.server.provider.packages=com.jb.resources.billing,com.jb.resources.patient,com.jb.resources.doctor
+because it doesnt look for subpackages
+
+instead of above we can pass the base-package name as an input and ask jersey runtime to look into the subpackages of the specified package also as below.
+	
+<servlet>
+	<servlet-name>jersey</servlet-name>
+	<servlet-class>org.glassfish.jersey.servlet.ServletContainer</servlet-class>
+	<init-param>
+		<param-name>jersey.config.server.provider.packages</param-name>
+		<param-value>com.jb.resources</param-value>
+	</init-param>
+	<init-param>
+		<param-name>jersey.config.server.provider.scanning.recursive</param-name>
+		<param-value>true</param-value>
+	</init-param>
+</servlet>
+<servlet-mapping>
+	<servlet-name>jersey</servlet-name>
+	<url-pattern>/api/\*</url-pattern>
+</servlet-mapping>	
+
+jersey.config.server.provider.scanning.recursive = by default false, and if we make it true, it indicates scan including the subpackages within the specified package
+	
+3. programmatic approach of bootstrapping the jersey runtime through Application class
+in jee5 onwards web.xml is optional aspart of an application, we can configure Servlets within an application to the ServletContainer runtime through annotations without using web.xml. but inorder to do so we need sourcecode of the Servlet classes on whom we wanted to write the annotation.
+	
+but incase the Servlet classes are provided by an library/framework we dont have the sourcecode, for eg.. in jersey implementation the org.glassfish.jersey.servlet.ServletContainer class has provided by the vendor, we dont have sourcecode of it, so we cannot write annotations on the class to configure/register with ServletContainer on which our application is running.
+	
+So to configuring the org.glassfish.jersey.servlet.ServletContainer within our application without using web.xml, the jersey has provided programmatic approach
+
+1. without web.xml how to configure org.glassfish.jersey.servlet.ServletContainer in an application
+2. scope of resources
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

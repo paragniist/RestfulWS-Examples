@@ -1,0 +1,132 @@
+Can we build restful services using Servlet api?
+any thing that has capability of receiving the request or dispatching the response over http protocol can be considered as an Restful Service. Since Servlet classes also are capable of receiving http request and dispatch http response these can also be termed as Restful Services.
+	
+Then why do we need jaxrs api, why can we build restful services using Servlet api itself?
+if we are building restful services using servlet api, we need to endup in writing huge amount of code in
+1. determing the request method to identify which appropriate business operation to be performed for that request
+2. extracting the request data and converting them into the business representation format to perform operation on that data
+3. write necessary logic for preparing the data in the format we need to dispatch to the client application aspart of the response
+4. write logic for adding corresponding headers aspart of the response and write code for dispatching the data aspart of the http response to the client
+
+We need to write the above piece of code acorss all the restful service classes we are developing using servlet api which is a boiler-plate logic and requires huge development time and cost in building them. to overcome these problems in building restful applications in java the oracle has introduced jaxrs api
+
+
+jaxrs api an extension to the servlet api:
+-----------------------------------------
+jaxrs api is an extension to the servlet api, through which we can sophisticatedly build restful services aspart of java platform. In case of Servlet api 
+1. the developer is going to write s/w components by implementing the api classes provided by the Servlet api (developer implementation)
+2. the implementation vendors provides runtimes which are servlet containers written based on Servlet api, that takes the job of receiving the request and dispatching them to the appropriate servlet implementation classes written by the developers within the application.
+	
+similary in jaxrs api also we need #2 implementations
+1. the developers has to build restful service components based on the api provided interfaces/annotations in fulfilling the functionality of the application
+2. the implementation vendors has to provide runtimes similar to servlet container, which are jaxrs container, that has to do the job of receiving the request and dispatching them to the appropriate restful service components written by the developers based on jaxrs api
+
+but having an jaxrs container (runtime) built from the scratch is an reinventing the wheel, because already the Servlet containers does the job of receiving the httprequest and dispatching the http response over the network, in addition we need an extension that takes care of invoking the developer written resources/restfulservice components and collecting the return values and handovering to servlet container
+
+To bridge between the ServletContainers and the Resource components the jaxrs api implementation vendors has provided Servlet, which acts as an jaxrs runtime
+each implementation vendor has provided their own Servlet class, that acts as an runtime in taking the request from servlet container and dispatching it to the appropriate resource component
+-------------------------------------------------------------------------------------------------------------------------------------
+How does the jaxrs api help us in quickly building the restful service components?
+jaxrs api is an modern api when compared with servlet programming. in servlet programming request/response handling logic has to be written by the developer, where as in jaxrs api the api has provided necessary annotations through which we can express 
+
+1. what parts of data that is sent aspart of the request needs to be passed as an input while invoking the resource methods, so that the jaxrs runtime is responsible for extracting the data based on the contract that is expressed through annotation and injects that data accordingly while invoking the resource methods. so the input data is injected by the runtime thus eliminating huge amount of code
+
+2. similarly while dispatching the response back to the client the resource methods would return the objects of data back to the runtime expressing how does this data needs to be formatted inorder to dispatch the response to the client application. The job of converting the data into appropriate data format is taken care by runtime itself.
+So the programmer only has to write business logic in building the restful services, thus simiplying the development.
+--------------------------------------------------------------------------------------------------------------------------------------
+How do we need to configure the runtime?
+always configure the jaxrs runtime with wildcard pattern url format so that any request that is send to the application will be always received by jaxrs runtime, and there after it can dispatch the request to the appropriate jaxrs resource component of our application.
+	
+but it is general practice or a recommendation to write jaxrs runtime configured with /prefix/\* so that only the requests that are send to the jaxrs resource components are routed through jaxrs runtime.
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

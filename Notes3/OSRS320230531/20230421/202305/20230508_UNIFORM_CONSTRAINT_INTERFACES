@@ -1,0 +1,202 @@
+There are 5 principles of restfulservices are there
+1. unique addressable URI
+2. uniform constrained interfaces
+3. representation oriented
+4. communication stateless
+5. HATEOS
+
+1. unique addressable URI
+most of the existing distributed technologies suffers with lack of direct addressability (they have complex addressing schema), that makes the distributes services difficult to adopt or integrate. The Rest principle states, each interoperable distributed component should have an direct addressable schema (URI), through which people can integrate and access the services, thus making them quick to adopt and integrate within their applications
+
+2. uniform constrained interfaces
+interfaces  = always refers to how do we interact with the component to use its functionality (indirectly api methods exposed)
+constrained = fixed
+uniform = same across
+
+across all the inter-operable distributed components we need to have same set of fixed number of interfaces over which we need to design the components
+
+class PolicyResource {
+	public Policy newPolicy(Enrollment enrollment) {}
+	public String updatePolicy() {}
+	public String cancelPolicy() {}
+	public Policy getPolicy(String policyNo) {}
+}
+
+class PlanResource {
+	public Plan getPlan(String planNo) {}
+	public int addPlan(Plan plan) {}
+	public List<Plan> search(Criteria criteria) {}
+}
+
+different resources/components offers different functionalities, so to expose them we need different interfaces across the components, now the questions that comes immediately based on the above principle are:
+1. how can we have same interfaces across the components offering different functionalities?
+2. why do we need? (what is the use of it?)
+	
+1. how can we have same interfaces across the components offering different functionalities?
+The idea behind having uniform constrained interfaces is that we stick to finite set of operations of the application protocol that we use in exposing the services. 
+This means we can avoid an additional action parameter along with URI in accessing the component and rely on methods of the application protocol to determine the interface to which the request needs to be resolved
+	
+For eg.. incase of Restful Service, the standard protocol that we use (many implementations) HTTP. HTTP protocol has small, fixed and finite set of methods with defined meaning
+1. GET     = GET is an readonly operation, and is used for quering an resource from the server
+2. POST    = POST is modelled for creating an new resource on the server
+3. PUT     = PUT is modelled for creating/updating an existing resource on the server
+4. DELETE  = DELETE is for deleting an existing resource on the server
+-----------
+5. HEAD
+6. TRACE
+7. OPTIONS
+8. CONNECT
+9. PATCH
+now using these finite and pre-defined protocol methods we can model the interfaces of our distributed components as below.
+	
+URI: /policy	
+class PolicyResource {
+	#POST
+	public Policy newPolicy(Enrollment enrollment) {}
+	#PUT
+	public String updatePolicy() {}
+	#DELETE
+	public String cancelPolicy() {}
+	#GET
+	public Policy getPolicy(String policyNo) {}
+}
+
+URI: /plan
+class PlanResource {
+ 	#GET
+	public Plan getPlan(String planNo) {}
+	#POST
+	public int addPlan(Plan plan) {}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+	

@@ -1,0 +1,175 @@
+There are 9 Http Methods are supported by Http protocol
+1. GET
+2. POST
+3. PUT
+4. DELETE
+5. HEAD
+6. OPTIONS
+7. TRACE
+8. PATCH
+9. CONNECT
+
+9. CONNECT
+CONNECT http method is used for Http Tunneling
+--------------------------------------------------------------------------------------------------------------------------------------
+Http Status codes
+Always within the Http protocol there are only 2 paths of communication which are request/response only. when a client application has sent a request asking the server to perform operation. 
+	
+The server application either perform the operation successfully and return the response to the client or might fail in performing operation and might return error response back to the client. In both of these cases, the server returns httpResponse only to the client. Then how does the client differentiate between the success/failure response that is returned by the Server
+
+That is where http protocol introduced status code. based on the status code in the response, the client application can differentiate between the response as success/failure and incase of failure he can even identify where is the failure has been caused as well. Status code ranges as below
+
+2xx = success
+4xx = error at client
+5xx = error at server
+3xx = redirect
+
+1. GET = upon sending an GET request to the server, if the server has performed operation successfully and returns an response back to the client indicating the response as success response, the server will include the statuscode in the response as : 200
+	
+200 = success response
+
+2. POST = upon sending a POST request, if a new resource on the server has been created, indicating that the server returns an 201 (CREATED) along with the URI pointing to the new resource allowing the client to access it.
+201 = CREATED
+
+3. PUT = upon sending a PUT request, if the server has created a new resource indicating it, the server should return 201 (CREATED). if an existing resource has been updated successfully indicating the success operation it can return 200 (SUCCESS) or 204 (SUCCESS NO CONTENT)
+	
+201 = CREATED
+200 = SUCCESS
+204 = SUCCESS, NO CONTENT
+
+404 = NOT FOUND
+403 = FORBIDDEN REQUEST 
+
+500 = INTERNAL SERVER ERROR
+504 = TIMEOUT
+--------------------------------------------------------------------------------------------------------------------------------------
+1. distributed technology, why do we need it?
+2. evolution of distributed technology
+3. support of distributed technology in java platform
+4. soap architecture and concepts
+
+introduction to restful services
+5. principles of restful services
+6. architecture of restful services
+7. http basics
+--------------------------------------------------------------------------------------------------------------------------------------
+How to develop restful services in java language?
+java platform has provided jaxrs api, it has multiple implementations
+1. jersey
+2. resteasy
+
+Restful Service:
+program should be capable of receiving/sending http Request/response by exchanging the data over an standard data-representation standard, the we can call it as restful service
+
+
+A simple servlet class that is build using Servlet Api that can exchange the data can also be called as "Restful Service program",but the servlet api has been designed keeping in view of exchanging the HTML markup between the client/server interms of webapplication, whereas in restful service applications
+- we dont exchange markup rather we should be able send/receive business data in a standard data representation standard, even though through servlets it is achievable in exchanging the business data, we need to write lot of code in marshalling/unmarshalling and extracting the data
+
+to ease the efforts of building restful services in java platform the oracle has provided jaxrs api.
+	
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

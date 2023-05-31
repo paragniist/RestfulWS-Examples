@@ -1,0 +1,11 @@
+1. packages to scan
+2. scanning.recursive
+3. web.xml + Application class (define scope of resources)
+4. without web.xml + Application class (Servlet Container that supports Servlet 6+)
+5. ResourceConfig
+
+
+ProductApiService # productNo (price)
+WarrantyApiService# serialNo (InWarranty/Not-In Warranty)
+	
+	

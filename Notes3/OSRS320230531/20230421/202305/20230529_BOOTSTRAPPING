@@ -1,0 +1,123 @@
+jersey bootstrapping
+--------------------
+1. packages
+<servlet>
+	<servlet-name>jersey</servlet-name>
+	<servlet-class>org.glassfish.jersey.servlet.ServletContainer</servlet-class>
+	<init-param>
+		<param-name>jersey.config.server.provider.packages</param-name>
+		<param-value>pkg1,pk2</param-value>
+	</init-param>
+</servlet>
+<servlet-mapping>
+	<servlet-name>jersey</servlet-name>
+	<url-pattern>/prefix/\*</url-pattern>
+</servlet-mapping>
+
+2. by default the jersey runtime doesnt looks into sub-packages, we can enable using scanning.recursive as below.
+<servlet>
+	<servlet-name>jersey</servlet-name>
+	<servlet-class>org.glassfish.jersey.servlet.ServletContainer</servlet-class>
+	<init-param>
+		<param-name>jersey.config.server.provider.packages</param-name>
+		<param-value>pkg1,pk2</param-value>
+	</init-param>
+	<init-param>
+		<param-name>jersey.config.server.provider.scanning.recursive</param-name>
+		<param-value>true</param-value>
+	</init-param>
+</servlet>
+<servlet-mapping>
+	<servlet-name>jersey</servlet-name>
+	<url-pattern>/prefix/\*</url-pattern>
+</servlet-mapping>		
+
+#3. bootstrapping through Application
+There are 2 reasons for using Application class
+	1. no web.xml
+	2. define the scope of the resources
+	
+2. define the scope of the resources
+There are 2 scopes at which we can define the resources/restful services of our application
+1. request scope = per each request that is send to the resource class, the jaxrs runtime creates a new object of the resource class for serving the request
+
+2. application scope = only one object of the resource will be created at the scope of the application, and the same object will be reused for serving all the requests that are send to the resource
+The scope of instantiating the resource is not fixed in jaxrs api unlike the servlet api/ejb api. it should be choosen by the developer based on way he has designed to resource class
+	
+if the resource carries the non-sharable state: it should be scoped to request level
+if the resource doesnt have any state aspart of it: it should be scoped to application level
+
+its the developers responsibility to let the jaxrs runtime instantiate the resource class based on the scope, by using the help of Application class
+	
+Application class: is used for defining the information about the resources of our Application. If we dont define any scope for a resource, by default the scope will be treated as: request scope
+
+Along with the above through Application class we can configure the information about the application, to programmatically bootstrap the application without using web.xml as well
+
+
+The jaxrs api has provided an Application class, it is an non-abstract class. jakarta.ws.rs.core.Application
+
+class jakarta.ws.rs.core.Application {
+	public Set<Object> getSingletons() {}
+	public Set<Class<?>> getClasses() {}
+}
+
+getSingletons() = instantiate all the resources of the application scope and return them as Set of objects to the jaxrs runtime
+getClasses() = define all resources of request scope into one set and return to the jaxrs runtime
+
+To the jaxrs runtime instead of defining packages to look for resource classes, we pass Application class as an input, so that during the time of bootstrapping the jaxrs runtime will invoke the getSingletons() and getClasses() methods on our Application class and returned objects and classes are registered in resource metadata respectively as appliationScope and requestScope resources
+	
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

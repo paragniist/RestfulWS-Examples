@@ -1,0 +1,59 @@
+What are restful services, what is the purpose of them?
+Restful Services is new architectural style of building inter-operable distributed technology applications. 
+	
+Roy Fielding, one of principle authors of http specification has comeup within an whitepaper named: "Architectural Styles and design of network based Software Architectures" (2000) aspart of his doctorial thesis 	in which he described how to achieve inter-operable distributed technology applications much easiler over http protocol rather than adopting the soap specification standards
+
+World Wide Web (WWW consortium) is very popular and became intergral part of the human life. it has been adopted and used by everyone within the day to day activities. The Roy Fieldings started questioning by looking at the success and adoption of the world wide web by the people around the world as 
+1. How world wide web became ubiquitous (every where)
+2. How is it so adoptable and successful
+3. every each day more and more machines are connected to the internet, still the power/performance of the internet is not down, how is it so scalable
+
+what makes the web so successful, what are the principles or characteristics on which the world wide web is running, if we can identify and adopt the same principles or characteristics in building the software applications as well, then those also becomes more adoptable, scalable and successful, that is where the birth of restul services began
+
+when it comes to soap services, soap webservices are designed through specification standards and everyone should adopt the same specification in achieving inter-operability, whereas in restful services there is no specification/standards rather it is driven through principles
+
+
+The Roy Fieldings has defined principles based on his study that should be followed in building applications to be more adoptable, ubiquitous, sucessful and scalable and these principles are called "Restful Service principles"
+Principles	
+1. Unique Addressable URI
+2. Uniform Constrained Interfaces
+3. Representation Oriented
+4. Communication Stateless
+5. HATEOS
+
+1. Unique Addressable URI
+Anything that is being made accessible over the network through http protocol is called an "Resource" or an "WebResource". Incase of Restful Services we leverage Http protocol in building the software components and exposing them over the network, so these Restful Components we build and distribute can also be called as "Resources / WebResources".
+	
+Every resource should have an direct addressable accessible URI
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

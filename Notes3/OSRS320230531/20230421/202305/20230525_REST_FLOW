@@ -1,0 +1,50 @@
+1. why jaxrs api, why not servlet api in developing restful services?
+2. what is the container implementation for jaxrs api?
+Servlet class acts as an implementation for jaxrs api
+
+3. why do we need to use jaxrs api in developing restful services, what advantages we have?
+	To simplify the development of restful services, where we dont need to write the code for extracting the data from the request or dispatching the response to the client. Instead the jaxrs runtime takes care of extracting the data and injecting it as an input into the resource class and their methods while invoking the methods of the resource class
+	similarly the jaxr runtime takes care of dispatching the response back to client upon returning the return value from the resource class methods
+		
+4. how to configure the jaxrs runtime?
+always configure the jaxrs runtime with wildcard url pattern something like "/prefix/*", so that the intended requests to the resources classes only be received by the jaxrs runtime
+--------------------------------------------------------------------------------------------------------------------------------------
+How does the flow of execution happens upon sending the request?
+		
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	

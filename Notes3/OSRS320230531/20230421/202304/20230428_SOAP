@@ -1,0 +1,43 @@
+SOAP WebServices
+SOAP stands for simple object access protocol, the support for developing soap webservices has been provided by sun microsystems to build interoperable, distributed applications aspart of the java language/platform
+
+interoperable = The distributed component is accessible to the client applications, that are build using any language and are running on any platform, the these distributed components are called "interoperable"
+	
+by default every distributed component is not inter-operable, to achieve inter-operability among the vendors, we need common standards in building and exchanging the data between the applications
+
+To establish common standards across the vendors, the WS-I organization has been established, WS-I is an opensource organization that is founded by all the players in the market to achieve common standards in making the applications interoperable. The WS-I organization has documented the common standards in specification documents
+1. bp1.0
+2. bp1.1
+	
+The sun microsystems has provided #2 apis based on the WS-I specifications to support building soap webservices in java language
+1. bp1.0 = jaxrpc api (java api for xml remote procedure calls)
+2. bp1.1 = jaxws api (java api for xml web services)
+	
+How does the architecture of SOAP Webservices looks like, what common standards are established in achieving inter-operability?
+	
+
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	

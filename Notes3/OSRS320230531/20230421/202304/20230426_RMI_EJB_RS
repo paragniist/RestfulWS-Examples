@@ -1,0 +1,134 @@
+RMI
+RMI stands for remote method invocation, RMI is an api provided by Sun Microsystems insupport of building distributed technology applications aspart of java platform
+
+pros:
+1. ease of development, it matches with traditional style of java application development
+2. no packaging and no deployment
+3. no maintainance or monitoring or installing the middleware servers
+4. completely opensource
+
+cons:
+1. doesnt scale for building enterpise applications
+--------------------------------------------------------------------------------------------------------------------------------------
+EJB
+EJB stands for enterprise java beans, it is one more api provided by sunmicrosystems in building enterprise applications based on distributed technology in java platform
+
+There are 3 types of EJBs are there
+1. Session Bean        = business components, that can be exposed over the network
+2. Entity Bean         = persistence technology components, can be exposed over the network
+3. Message-driven Bean = asynchronous communication between the applications across the network
+The latest version of EJB is EJB 3.1 in this version the Entity Beans are removed and replaced with jpa api
+
+The biggest feature that is introduced into the world of programming by EJB is the concept of managed object and managed container.
+
+1. write the java code directly
+2. ejb deployment descriptor
+3. package the application as an EAR
+4. deploy the ejb application aspart of the EJB Container
+
+pros:
+1. finally we can build enterprise distributed application using java platform
+2. most of the cross-platform services are offered by the infrastructure/container/platform, so programmer has little in coding toward them and has to build only business logic, thus development of the application will be very fast
+
+cons:
+1. very complex to understand and develop the applications
+2. the ejb containers or middleware is heavy weight and requires huge system resources in running the application
+3. ejb objects/components are not inter-operable
+
+The sun microsystems to overcome the dis-advantages with ejb, it has introduced one more api called "soap webservices"
+	
+4. SOAP WebServices
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

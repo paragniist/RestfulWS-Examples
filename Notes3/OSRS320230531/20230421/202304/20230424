@@ -1,0 +1,100 @@
+What is the support of distributed technology by java platform or language?
+java language/platform has provided several apis in support of building applications based on distributed technology:
+1. corba
+2. rmi
+3. ejb
+4. soap webservices
+5. restful services
+
+why do we need to use restful services in building the distributed technology applications, why cant we use any other apis?
+to answer this, we need to explore each of the apis provided and see what are their pros/cons 
+1. corba
+corba stands for common object request broker architecture. it is the api provided by java platform in support of building distributed programs in java language.
+	
+The promise made by the java platform is to support building distributed applications in multiple languages using corba: In order to support this the way the applications are developed in Corba has an different approach
+
+1. To help us in building distributed program in multiple languages, corba enforces us to write the IDL file (IDL stands for interface definition language) describing the interfaces of the program
+2. pass it as an input to the corba compiler along with language, the corba compiler generates the classes/programs in the respective language along with network logic also around it
+3. the developer has to write the business logic inside the program it has generated
+4. now the developer has to compile the program using java compiler to generate the class file or respective language compiler to make it executable
+	
+5. To run the program (if it is java)	we need to package the program using special corba packaging standard
+6. Need to deploy the program on Corba Server (MOM: Message oriented middleware)	and run the server
+
+pros:-
+	1. supports multiple programming languages in building distributed programs
+	2. abstracts the complexity of network aspects
+
+cons:-
+	1. even though it promised to support multiple languages, in reality only it supports #2 lang: java, c failed for others
+	2. always java developers builds java applications by writing java class, but corba states write IDL file, which is not what java developers do usually in developing applications
+	3. dont know IDL, need to learn and cannot image interfaces of the program until we write
+	4. corba compiler is an suprise, because java developers until then only knows java compiler only
+	5. never imagined about a compiler generating the sourcecode, which is un-digestable for many java programmers
+	6. writing business logic in the generated class is not an usual style of programming
+	7. dont know about corba packaging
+	8. deploy on corba server is a new thing in the world of java!
+The development complexity in developing an application using Corba is very high, it is not matching with traditional java application developer, so many people stayed away from Corba
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

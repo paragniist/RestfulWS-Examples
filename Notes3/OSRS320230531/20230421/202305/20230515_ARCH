@@ -1,0 +1,8 @@
+Principles of Restful Services
+1. unique addressable URI
+2. uniform constrained interfaces
+3. representation oriented
+4. communication stateless
+5. HATEOAS
+
+

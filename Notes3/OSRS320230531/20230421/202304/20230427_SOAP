@@ -1,0 +1,169 @@
+what are the apis available in java platform for building distributed technology based applications?
+There are 5 apis are available
+1. corba
+2. rmi
+3. ejb
+4. soap services
+5. restful services
+
+3. ejb
+ejb stands for enterprise java bean, there are 3 types of ejbs are there
+1. session bean
+2. entity bean
+3. message-driven bean
+used for building enterprise applications based on distributed technology
+
+pros:
+1. supports building enterprise distributed technology applications 
+2. most of the cross-cutting features are offered by the underlying container, so that developer dont need to write the boiler-plate logic in building enterprise application, thus reduces the cost/time of development
+
+cons:
+1. very complex to understand and develop the application
+2. heavy weight, even though we dont need all the cross-cutting services, those are packaged and shipped aspart of the container thus making it overloaded to use
+3. not inter-operable
+
+4. soap webservices
+soap stands for "simple object access protocol" is an another api provided by sun microsystems aspart of java platform in support of building inter-operable distributed applications
+inter-operability = the distributed component can be accessed by any application, that is build on any language and running across any platform
+
+birth of soap:
+due to the increasing demands of the business, the need/requirement of innovating distributed technology arised.  people wanted to build applications that runs across the machines thus multiplying the computing resource in performing the job, ofcourse out of it we have plenty of advantages like reduces turn-around time, increases through-put, fail-over safe, scaling
+
+upon innovating the distributed technology, people wanted to make these distributed components being exposed and accessible by any language and any platform applications. That is where the need to inter-operability appeared.
+	
+unless everyone speaks in the common language/standards we cannot achieve inter-operability, so to establish common standards between all the parties WS-I organization has been established
+
+WS-I = Webservice inter-operability organization = is an organization formed collectively by group of people from various different corporates. This organization has been established to build standards that should be used by all the people to achieve inter-operability.
+	
+The WS-I organization describing the standards to be used for achieving inter-operability the comeup with #2 specification documents
+1. BP-1.0
+2. BP-1.1
+specifications
+
+Sun Microsystems in support of building soap webservices in java platform based on bp1.0 and bp1.1 specification stands it has provided 2 apis
+1. jaxrpc api (based on bp1.0 specification) = java api for xml remote procedure call
+2. jaxws api (based on bp1.1 specification)  = java api for xml web services
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

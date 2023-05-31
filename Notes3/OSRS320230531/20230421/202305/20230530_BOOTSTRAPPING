@@ -1,0 +1,166 @@
+Jersey Bootstrapping
+--------------------
+1. packages
+2. scanning.recursive
+
+3. bootstrapping the jersey application through Application class
+Scope of resources:
+There are 2 scopes are there
+1. application scope (singleton scope) = for all the requests that are sent to the resource/api only one single object is created and used in serving all the requests.
+	
+2. request scope = per each request to the resource, a new object of the resource/api class will be created to serve the request
+	
+based on the way we designed the resource/api class the developer has to instruct the jaxrs runtime stating the scope of the resource through the help of Application class
+	
+class jakarta.ws.rs.core.Application {
+	public Set<Object> getSingletons() {}
+	public Set<Class> getClasses() {}
+}	
+
+getSingletons() = pre-instantiate all the resource class objects that we wanted to use at application/singleton scope and return them as Set of objects to jaxrs runtime
+
+getClasses() = return the Set of classType of the resource classes, we want to scope at request level, so that jaxrs runtime instantiates the object of resource per each request
+
+AccountApiService (application/singleton scope)
+ProductApiService (request scope)
+	
+class MyApplication extends Application {
+	private Set<Object> singletons;
+	private Set<Class> classes;
+	
+	public MyApplication() {
+		singletons = new HashSet();
+		classes = new HashSet();
+		
+		singletons.add(new AccountApiService());
+		classes.add(ProductApiService.class);
+	}
+	
+	public Set<Object> getSingletons() {
+		return singletons;		
+	}
+	public Set<Class> getClasses() {
+		return classes;
+	}
+}	
+
+web.xml
+-------
+<servlet>
+	<servlet-name>jersey</servlet-name>
+	<servlet-class>org.glassfish.jersey.server.ServletContainer</servlet-class>
+	<init-param>
+		<param-name>jakarta.ws.rs.Application</param-name>
+		<param-value>MyApplication</param-value>
+	</init-param>
+</servlet>
+<servlet-mapping>
+	<servlet-name>jersey</servlet-name>
+	<url-pattern>/prefix/\*</url-pattern>
+</servlet-mapping>
+
+4. programmatic bootStrapping through Application class
+no web.xml approach
+now we need to annotate the Application class with @ApplicationPath("") annotation with urlPattern with which the jaxrs runtime should be configured internally
+
+@ApplicationPath("/prefix/*")
+class MyApplication extends Application {
+	private Set<Object> singletons;
+	private Set<Class> classes;
+	
+	public MyApplication() {
+		singletons = new HashSet();
+		classes = new HashSet();
+		
+		singletons.add(new AccountApiService());
+		classes.add(ProductApiService.class);
+	}
+	
+	public Set<Object> getSingletons() {
+		return singletons;		
+	}
+	public Set<Class> getClasses() {
+		return classes;
+	}
+}
+
+(or)
+if we dont want to specify the resource scope and just want to have all the resources scoped to the default: request, then we can write an empty Application class with @ApplicationPath() annotation as below
+
+@ApplicationPath("/prefix/*")
+class MyApplication extends Application {}
+This scans for all the packages within our application to identify/register the resource classes
+The programmatic bootstrapping is agnostic to the implementation vendor and works across all the vendors and is preffered.
+
+
+5. The jersey implementation has provided an subclass of the Application class called "ResourceConfig"	
+	
+class ResourceConfig extends jakarta.ws.rs.core.Application {
+	private Set<Object> singletons;
+	private Set<Class> classes;
+	
+	public ResourceConfig() {
+		singletons = new HashSet();
+		classes = new HashSet();
+	}
+	
+	public void register(Object obj) {
+		singletons.add(obj);
+	}
+	public void register(Class clazz) {
+		classes.add(clazz);
+	}
+	
+	public Set<Object> getSingletons() {
+		return singletons;
+	}
+	public Set<Class> getClasses() {
+		return classes;
+	}
+}	
+
+class MyApplication extends ResourceConfig {
+	public MyApplication() {
+		super.register(new AccountApiService());
+		super.register(ProductApiService.class);
+	}
+}
+
+<servlet>
+	<servlet-name>jersey</servlet-name>
+	<servlet-class>org.glassfish.jersey.server.ServletContainer</servlet-class>
+	<init-param>
+		<param-name>jakarta.ws.rs.Application</param-name>
+		<param-value>MyApplication</param-value>
+	</init-param>
+</servlet>
+<servlet-mapping>
+	<servlet-name>jersey</servlet-name>
+	<url-pattern>/prefix/\*</url-pattern>
+</servlet-mapping>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

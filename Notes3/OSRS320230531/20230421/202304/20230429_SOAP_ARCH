@@ -1,0 +1,23 @@
+5. SOAP Web Services
+soap stands for simple object access protocol and soap webservices are support by sunmicrosystems to help us in building interoperable distributed technology applications in java platform.
+	
+The WS-I organization has standardized many stands that people across the world should following in achieving interoperability through specification
+1. http protocol 
+2. xml for interchanging the data between the parties
+3. soap = for classification of the data
+4. wsdl = for documentation
+5. uddi = service discovery and description
+
+pros:
+1. finally able to build interoperable distributed programs 
+
+2. soap webservices supports not only building interoperable distributed applications, we can even build enterprise interoperable distributed applications, it has provided several standards in making them enterprise through WS-* specification standards like
+ws-security
+ws-policy
+ws-atomictransaction
+ws-addressing
+ws-reliablemessaging
+ws-trust
+ws-coordination
+etc
+

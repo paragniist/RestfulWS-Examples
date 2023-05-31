@@ -1,0 +1,97 @@
+How does the applications/programs looks like if we are building them using distributed technology?
+inorder to distribute the job across multiple programs we need to run the programs across the machines/computers. since these programs are mutual cooperating programs that needs to coordinate and communicate with each other to complete the job, the underlying machines on which these programs are running must and should be inter-connected over the network
+
+These programs should be having an ability of communicating with each other over the network in exchanging the data to perform the operation together, thus the programs we build based on distributed technology are network programs
+
+In-short: building the applications based on distributed technology means, making the programs run across multiple machines and enabling them to communicate with each other over the network to coordinate in accomplishing the job
+
+Distributed technology is innovated from the demands of the business.
+Initially forget about network programs or distributed technology, there even doesnt exist a computer/program also, later on due to increasing demands of the business, the necessacity of building programs that can run across the computers and communicate with each other in coordinating and computing the job has been brought into picture.
+	
+Now extensive research has been done towards making the programs communicate over the network, thus group of experts who has lot of experience in building software applications came together and started researching on how to build software applications, that can not only communicate with other programs on the same machine, but they should have ability of communicating with other programs over the network.
+based on their research they brought few guideliness and rules that should be followed in building the applications to have them ability of communicating over the network
+Thus these rules and guideliness that are being defined by these experts helping us in making the programs communicate over the network are called "distributed technology" or "distributed methodology"
+	
+From the above we can understand distributed technology is not an programming language or api, rather it is an methodology defined by experts helping us in building applications that can scale-up by running across the network
+
+Now its the job of developers in building the software applications in their respective programming languages based on these guideliness/rules to be called as "distributed programs" so that they can meet the demands of the business. 
+	
+The developers has to endup in writing lot of complex code in understanding network protocols, bit transfers, encoding/decoding in making the programs communicate with each other over the network thus making it impossible to build applications based on distributed technology
+
+But the demands of the business is increasing, So programming languages has to provide apis supporting distributed technology enabling the programmers in building applications quickly
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	

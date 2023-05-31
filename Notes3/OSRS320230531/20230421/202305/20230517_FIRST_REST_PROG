@@ -1,0 +1,192 @@
+What is an Restful Service?
+A new architectural style of build software applications based on the restful principles to make them interoperable and distributed.
+	
+What is the support of java programming language in building restful service applications?
+Java has provided an api called jaxrs api (java api xml restful services). The api name is mis-leading, because restful services can exchange the data based on any data-interchange standard 
+
+jaxrs api = apis are always partial and to work with apis we need implementations
+|-jersey = jersey is the reference implementation (the reference implementation is provided by oracle itself)
+|-resteasy = an implementation provided by jboss
+--------------------------------------------------------------------------------------------------------------------------------------
+Basics of Http protocol
+HTTP stands for hypertext transfer protocol used for exchanging the HTML data across the network between the applications. The HTTP protocol has #2 paths of communication
+
+1. Http Request  = always the client will be the initiator of the communication and he/she should send httpRequest message containing the data to be send as an input asking the server program to perform operation
+The HttpRequest message contains #3 parts
+
+1. URI
+2. protocol/version
+3. method
+=====================
+HEADER
+Http Protocol Standard Headers
+-------------------------------
+BODY
+[Any Data]
+	
+
+2. Http Response = The Server upon processing the request, he constructs an HttpResponse message populating the data and dispatches it back to the client program
+The HttpResponse message has #3 parts
+1. Status = indicating the status of the request that has been send by the client
+2. HEADER
+3. BODY
+--------------------------------------------------------------------------------------------------------------------------------------
+What are the Http operations or methods supported by http protocol
+There are 9 Http methods are supported by http 2.0 protocol
+1. GET
+2. POST
+3. PUT
+4. DELETE
+5. HEAD
+6. OPTIONS
+7. TRACE
+8. CONNECT
+9. PATCH
+
+
+1. GET
+GET is an read-only method and always used for querying the data or accessing a resource on the server. In case of GET request method, httpRequest body will not be there, because we will not send the data to the server to perform operation, always GET is used for accessing/requesting the data from server only.
+The only way to send the data as an input to the server aspart of the GET request is through URI.
+	
+GET is considered as safe and idempotent method,
+
+idempotent = The post effect of sending a request for N times would be same as 1 time. For each request, the state of the resource on the server would not be effected which is called "idempotent".
+	
+2. POST
+POST is modelled for creating an new resource on the server. In POST request we have request body, that can be used for sending any type of data as an input to the server asking to perform operation.
+
+Incase of POST request, the client will not send the identity of the resource that should be created on the server. upon receiving the request, the server will perform the operation like creating the new resource by generating the identity and sends the identity of the resource it has created back to the client
+
+POST is an non-idempotant and non-safe method.
+	
+#1
+POST
+BODY
+{
+	"accountHolderName": "Mathew",
+	"age":30,
+	"gender": "Male"
+}
+
+accountNo = 10
+	
+	
+#2	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
